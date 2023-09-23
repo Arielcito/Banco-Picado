@@ -302,12 +302,12 @@
 	"turno.h"
 	<stdlib.h>
 
-1694362982 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\util.c
+1695506147 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\util.c
 	<stdio.h>
 	<stdlib.h>
 	"util.h"
 
-1694363814 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\util.h
+1695506147 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\util.h
 
 1695078080 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\main.c
 	<stdio.h>
@@ -322,7 +322,7 @@
 	"turno.h"
 	"cheque.h"
 
-1695488147 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\cola.c
+1695506147 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\cola.c
 	<stdbool.h>
 	"Cola.h"
 	"Util.h"
@@ -337,7 +337,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1695488149 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\nodo.c
+1695506147 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\nodo.c
 	<stdio.h>
 	<stdlib.h>
 	"Nodo.h"
@@ -354,4 +354,15 @@
 	<stdlib.h>
 	<stdbool.h>
 	"Nodo.h"
+
+1695506376 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\lista.c
+	<stdbool.h>
+	"Lista.h"
+	"Util.h"
+	"Nodo.h"
+
+1695506363 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\lista.h
+	<stdbool.h>
+	"Nodo.h"
+	"Util.h"
 

@@ -1,79 +1,82 @@
 #include <stdio.h>
-#include <time.h>
+#include "Lista.h"
+#include "Cuenta.h"
 
-Cliente obtenerSiguienteCliente(Cola *cola) {
-    if (estaVacia(cola)) {
-        printf("La cola está vacía. No hay clientes para atender.\n");
-        Cliente clienteVacio = {"", 0};
-        return clienteVacio;
-    }
+typedef struct {
+    int cliente; // Nombre del cliente
+    char cajero[100]; // Nombre del cajero
+    double monto; // Monto de la operación (positivo para depósitos, negativo para retiros)
+} InformeOperacion;
 
-    return cola->elementos[cola->frente];
+PtrLista inicializarLista(){
+    PtrLista lista=crearLista();
+    return lista;
 }
 
-void atenderTurno(Cola *cola) {
-    Cliente siguienteCliente = obtenerSiguienteCliente(cola);
-
-    if (siguienteCliente == 0) {
-        printf("No hay clientes para atender.\n");
-    } else {
-        printf("Atendiendo al cliente: %s, %d años\n", siguienteCliente.nombre, siguienteCliente.edad);
-        desencolar(cola);
-    }
-}
-
-void pagarImpuestos(float taxPaid, float amount) {
-    time_t now = time(NULL);
-    struct tm *tm = localtime(&now);
-
-    // Check if the payment is for taxes
-    // Assuming the taxPaid value is 1 for tax payments
-    if (taxPaid == 1) {
-        // Check if the payment is made at the correct cashier (cashier 2)
-        // Assuming the cashier value is 2 for cashier 2
-        if (cashier == 2) {
-            // Extract the current date and time components
-            int year = tm->tm_year + 1900;
-            int month = tm->tm_mon + 1;
-            int day = tm->tm_mday;
-            int hour = tm->tm_hour;
-            int minute = tm->tm_min;
-            int second = tm->tm_sec;
-
-            // Perform the necessary operations to record the payment
-            // For example, you can print the details of the payment
-            printf("Payment Date and Time: %d-%02d-%02d %02d:%02d:%02d\n", year, month, day, hour, minute, second);
-            printf("Tax Paid: %.2f\n", amount);
-        } else {
-            printf("Taxes can only be paid at cashier 2.\n");
-        }
-    } else {
-        printf("Invalid payment type.\n");
-    }
-}
-
-void transferirDinero(CuentaBancaria* origen, CuentaBancaria* destino, double monto) {
-    if (origen == NULL || destino == NULL) {
-        printf("Error: Las cuentas no existen.\n");
+void ingresarDinero(CuentaPtr cuenta, double monto, const char* cajero, PtrLista listaTransacciones) {
+    // Verificar que el monto a ingresar sea positivo
+    if (monto <= 0) {
+        printf("El monto a ingresar debe ser mayor que cero.\n");
         return;
     }
 
-    if (origen->saldo < monto) {
-        printf("Error: Saldo insuficiente en la cuenta de origen.\n");
+    // Actualizar el saldo disponible en la cuenta
+    cuenta->saldo += monto;
+
+    // Registra la operación en la lista de transacciones
+    InformeOperacion informe;
+    strcpy(informe.cliente, cuenta->numeroCuenta);
+    strcpy(informe.cajero, cajero);
+    informe.monto = monto;
+    agregarDatoLista(listaTransacciones, &informe);
+
+    // Imprimir un mensaje de confirmación
+    printf("Se ingresaron %.2lf pesos a la cuenta de %s. Nuevo saldo: %.2lf\n", monto, cuenta->numeroCuenta, cuenta->saldo);
+}
+
+// Función para retirar dinero de una cuenta y registrar la operación
+void retirarDinero(CuentaPtr cuenta, double monto, const char* cajero, PtrLista listaTransacciones) {
+    // Verificar que el monto a retirar sea positivo
+    if (monto <= 0) {
+        printf("El monto a retirar debe ser mayor que cero.\n");
         return;
     }
 
-    origen->saldo -= monto;
-    destino->saldo += monto;
+    // Verificar si el saldo es suficiente para el retiro
+    if (monto > cuenta->saldo) {
+        printf("Saldo insuficiente para realizar el retiro.\n");
+        return;
+    }
 
-    // Registra la operación en cuenta
-    OperacionCuenta operacion;
-    operacion.fechaHora = time(NULL);
-    operacion.cheques = NULL; // Puede ser NULL ya que no se usan cheques en esta operación
-    operacion.numCheques = 0;
-    operacion.efectivo = monto;
-    operacion.cuenta = *origen;
-    realizarOperacionCuenta(operacion);
+    // Realizar el retiro y actualizar el saldo disponible
+    cuenta->saldo -= monto;
 
-    printf("Transferencia exitosa de %.2lf pesos desde la cuenta %d a la cuenta %d.\n", monto, origen->numero, destino->numero);
+    // Registra la operación en la lista de transacciones
+    InformeOperacion informe;
+    strcpy(informe.cliente, cuenta->numeroCuenta);
+    strcpy(informe.cajero, cajero);
+    informe.monto = -monto; // Monto negativo para indicar retiro
+    agregarDatoLista(listaTransacciones, &informe);
+
+    // Imprimir un mensaje de confirmación
+    printf("Se retiraron %.2lf pesos de la cuenta de %s. Nuevo saldo: %.2lf\n", monto, cuenta->numeroCuenta, cuenta->saldo);
+}
+
+void mostrarInformes(PtrLista lista) {
+    printf("Informe de operaciones:\n");
+
+    // Iteramos sobre la lista usando longitudLista para saber cuántos informes hay
+    int longitud = longitudLista(lista);
+
+    for (int i = 0; i < longitud; i++) {
+        // Obtenemos el informe en la posición i de la lista
+        InformeOperacion* informe = (InformeOperacion*)getDatoLista(lista, i);
+
+
+        // Suponiendo que InformeOperacion tiene campos nombreCliente, monto, etc.
+        printf("Cliente: %d\n", informe->cliente);
+        printf("Cajero: %s\n", informe->cajero);
+        printf("Monto: %.2f\n", informe->monto);
+        // Aquí muestra otros campos del informe según sea necesario
+    }
 }

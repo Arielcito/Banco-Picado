@@ -1,0 +1,357 @@
+# depslib dependency file v1.0
+1694353875 source:c:\users\user\downloads\trabajopracticogrupal\util.c
+	<stdio.h>
+	<stdlib.h>
+	"util.h"
+
+1693871802 c:\users\user\downloads\trabajopracticogrupal\util.h
+
+1694358577 source:c:\users\user\downloads\trabajopracticogrupal\main.c
+	<stdio.h>
+	<stdlib.h>
+	"banco.h"
+	"caja.h"
+	"cajero.h"
+	"cliente.h"
+	"operacionCuenta.h"
+	"operacionImpuestos.h"
+	"turno.h"
+	"cheque.h"
+
+1694360131 c:\users\user\downloads\trabajopracticogrupal\banco.h
+	"Sucursal.h"
+
+1694360300 c:\users\user\downloads\trabajopracticogrupal\sucursal.h
+	"caja.h"
+
+1694360131 c:\users\user\downloads\trabajopracticogrupal\caja.h
+	"turno.h"
+
+1694360301 c:\users\user\downloads\trabajopracticogrupal\turno.h
+
+1694360131 c:\users\user\downloads\trabajopracticogrupal\cajero.h
+
+1694360300 c:\users\user\downloads\trabajopracticogrupal\cliente.h
+
+1694360301 c:\users\user\downloads\trabajopracticogrupal\operacioncuenta.h
+	"cuenta.h"
+	<time.h>
+
+1694360300 c:\users\user\downloads\trabajopracticogrupal\cuenta.h
+
+1694360300 c:\users\user\downloads\trabajopracticogrupal\operacionimpuestos.h
+	<time.h>
+
+1694360318 c:\users\user\downloads\trabajopracticogrupal\cheque.h
+
+1694359124 source:c:\users\user\downloads\trabajopracticogrupal\banco.c
+
+1694483854 source:c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\banco.c
+	"banco.h"
+	<stdlib.h>
+
+1694362980 source:c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\util.c
+	<stdio.h>
+	<stdlib.h>
+	"util.h"
+
+1694363813 c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\util.h
+
+1694485258 source:c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\caja.c
+	"caja.h"
+	<stdlib.h>
+
+1694483923 c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\caja.h
+	"turno.h"
+
+1694485702 c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\turno.h
+
+1694521075 source:c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\cheque.c
+	"cheque.h"
+	<stdlib.h>
+	<string.h>
+
+1694485702 c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\cheque.h
+
+1694484008 source:c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\cliente.c
+	"cliente.h"
+	<stdlib.h>
+	<string.h>
+
+1694485702 c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\cliente.h
+
+1694485686 source:c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\turno.c
+	"turno.h"
+	<stdlib.h>
+
+1694521070 source:c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\cajero.c
+	"cajero.h"
+	<stdlib.h>
+	<string.h>
+
+1694485367 c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\cajero.h
+
+1694483994 source:c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\cuenta.c
+	"cuenta.h"
+	<stdlib.h>
+
+1694521103 c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\cuenta.h
+	"cliente.h"
+
+1694484104 source:c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\operacionimpuestos.c
+	"OperacionImpuestos.h"
+	<stdlib.h>
+	<string.h>
+
+1694485702 c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\operacionimpuestos.h
+	<time.h>
+
+1694484208 source:c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"banco.h"
+	"caja.h"
+	"cajero.h"
+	"cliente.h"
+	"OperacionCuenta.h"
+	"OperacionImpuestos.h"
+	"turno.h"
+	"cheque.h"
+
+1694484777 c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\banco.h
+	"sucursal.h"
+
+1694484777 c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\sucursal.h
+	"caja.h"
+
+1694485702 c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\operacioncuenta.h
+	"cuenta.h"
+	<time.h>
+
+1694484039 source:c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\operacioncuenta.c
+	"OperacionCuenta.h"
+	<stdlib.h>
+
+1694485258 source:c:\users\ariel.serato\downloads\trabajopracticogrupal\trabajopracticogrupal\sucursal.c
+	"sucursal.h"
+	<stdlib.h>
+	<string.h>
+
+1694483854 source:c:\users\maty\downloads\tp2\trabajopracticogrupal\banco.c
+	"banco.h"
+	<stdlib.h>
+
+1694484777 c:\users\maty\downloads\tp2\trabajopracticogrupal\banco.h
+	"sucursal.h"
+
+1694484777 c:\users\maty\downloads\tp2\trabajopracticogrupal\sucursal.h
+	"caja.h"
+
+1694483923 c:\users\maty\downloads\tp2\trabajopracticogrupal\caja.h
+	"turno.h"
+
+1694485702 c:\users\maty\downloads\tp2\trabajopracticogrupal\turno.h
+
+1694485258 source:c:\users\maty\downloads\tp2\trabajopracticogrupal\caja.c
+	"caja.h"
+	<stdlib.h>
+
+1694990705 source:c:\users\maty\downloads\tp2\trabajopracticogrupal\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"banco.h"
+	"caja.h"
+	"cajero.h"
+	"cliente.h"
+	"OperacionCuenta.h"
+	"OperacionImpuestos.h"
+	"turno.h"
+	"cheque.h"
+
+1694485367 c:\users\maty\downloads\tp2\trabajopracticogrupal\cajero.h
+
+1694485702 c:\users\maty\downloads\tp2\trabajopracticogrupal\cliente.h
+
+1694989091 c:\users\maty\downloads\tp2\trabajopracticogrupal\operacioncuenta.h
+	"cuenta.h"
+	<time.h>
+
+1694988708 c:\users\maty\downloads\tp2\trabajopracticogrupal\cuenta.h
+	"cliente.h"
+
+1694990304 c:\users\maty\downloads\tp2\trabajopracticogrupal\operacionimpuestos.h
+	<time.h>
+
+1694485702 c:\users\maty\downloads\tp2\trabajopracticogrupal\cheque.h
+
+1694485686 source:c:\users\maty\downloads\tp2\trabajopracticogrupal\turno.c
+	"turno.h"
+	<stdlib.h>
+
+1694362980 source:c:\users\maty\downloads\tp2\trabajopracticogrupal\util.c
+	<stdio.h>
+	<stdlib.h>
+	"util.h"
+
+1694363813 c:\users\maty\downloads\tp2\trabajopracticogrupal\util.h
+
+1694986176 source:c:\users\maty\downloads\tp2\trabajopracticogrupal\cajero.c
+	"cajero.h"
+	<stdlib.h>
+	<string.h>
+
+1694986248 source:c:\users\maty\downloads\tp2\trabajopracticogrupal\cheque.c
+	"cheque.h"
+	<stdlib.h>
+	<string.h>
+
+1694987149 source:c:\users\maty\downloads\tp2\trabajopracticogrupal\cliente.c
+	"cliente.h"
+	<stdlib.h>
+	<string.h>
+
+1694986405 source:c:\users\maty\downloads\tp2\trabajopracticogrupal\sucursal.c
+	"sucursal.h"
+	<stdlib.h>
+	<string.h>
+
+1694988708 source:c:\users\maty\downloads\tp2\trabajopracticogrupal\cuenta.c
+	"cuenta.h"
+	<stdlib.h>
+
+1694989097 source:c:\users\maty\downloads\tp2\trabajopracticogrupal\operacioncuenta.c
+	"OperacionCuenta.h"
+	<stdlib.h>
+
+1694990492 source:c:\users\maty\downloads\tp2\trabajopracticogrupal\operacionimpuestos.c
+	"OperacionImpuestos.h"
+	<stdlib.h>
+	<string.h>
+
+1694483856 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\banco.c
+	"banco.h"
+	<stdlib.h>
+
+1694484778 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\banco.h
+	"sucursal.h"
+
+1694484778 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\sucursal.h
+	"caja.h"
+
+1694483924 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\caja.h
+	"turno.h"
+
+1694485704 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\turno.h
+
+1694485260 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\caja.c
+	"caja.h"
+	<stdlib.h>
+
+1694986178 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\cajero.c
+	"cajero.h"
+	<stdlib.h>
+	<string.h>
+
+1694485368 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\cajero.h
+
+1694986250 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\cheque.c
+	"cheque.h"
+	<stdlib.h>
+	<string.h>
+
+1694485704 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\cheque.h
+
+1694987150 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\cliente.c
+	"cliente.h"
+	<stdlib.h>
+	<string.h>
+
+1694485704 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\cliente.h
+
+1694988710 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\cuenta.c
+	"cuenta.h"
+	<stdlib.h>
+
+1694988710 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\cuenta.h
+	"cliente.h"
+
+1694989098 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\operacioncuenta.c
+	"OperacionCuenta.h"
+	<stdlib.h>
+
+1694989092 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\operacioncuenta.h
+	"cuenta.h"
+	<time.h>
+
+1694990494 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\operacionimpuestos.c
+	"OperacionImpuestos.h"
+	<stdlib.h>
+	<string.h>
+
+1694990306 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\operacionimpuestos.h
+	<time.h>
+
+1694986406 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\sucursal.c
+	"sucursal.h"
+	<stdlib.h>
+	<string.h>
+
+1694485688 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\turno.c
+	"turno.h"
+	<stdlib.h>
+
+1694362982 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\util.c
+	<stdio.h>
+	<stdlib.h>
+	"util.h"
+
+1694363814 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\util.h
+
+1695078080 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"banco.h"
+	"caja.h"
+	"cajero.h"
+	"cliente.h"
+	"OperacionCuenta.h"
+	"OperacionImpuestos.h"
+	"turno.h"
+	"cheque.h"
+
+1695488147 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\cola.c
+	<stdbool.h>
+	"Cola.h"
+	"Util.h"
+
+1695488105 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\cola.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"Nodo.h"
+
+1695488103 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\nodo.h
+	<stdio.h>
+	<stdlib.h>
+
+1695488149 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\nodo.c
+	<stdio.h>
+	<stdlib.h>
+	"Nodo.h"
+	"Util.h"
+
+1695488171 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\pila.c
+	<stdio.h>
+	<stdlib.h>
+	"Pila.h"
+	"Util.h"
+
+1695488151 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\pila.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"Nodo.h"
+

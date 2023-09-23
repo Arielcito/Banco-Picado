@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="TrabajoPracticoGrupal" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/TrabajoPracticoGrupal" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/TrabajoPracticoGrupal" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="Banco.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Banco.h" />
+		<Unit filename="Caja.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Caja.h" />
+		<Unit filename="Cajero.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Cajero.h" />
+		<Unit filename="Cheque.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Cheque.h" />
+		<Unit filename="Cliente.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Cliente.h" />
+		<Unit filename="Cola.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Cola.h" />
+		<Unit filename="Cuenta.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Cuenta.h" />
+		<Unit filename="Nodo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Nodo.h" />
+		<Unit filename="OperacionCaja.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="OperacionCuenta.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="OperacionCuenta.h" />
+		<Unit filename="OperacionImpuestos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="OperacionImpuestos.h" />
+		<Unit filename="Pila.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Pila.h" />
+		<Unit filename="Sucursal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Sucursal.h" />
+		<Unit filename="Turno.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Turno.h" />
+		<Unit filename="Util.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="util.h" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

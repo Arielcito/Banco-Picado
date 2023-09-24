@@ -42,5 +42,6 @@ void setTitular(CuentaPtr cuenta, Cliente titular) {
 
 // Setter para el saldo de la cuenta
 void setSaldo(CuentaPtr cuenta, double saldo) {
+    printf("Saldo: %.2lf\n",saldo);
     cuenta->saldo = saldo;
 }

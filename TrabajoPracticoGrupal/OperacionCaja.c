@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "Lista.h"
+#include "Pila.h"
 #include "Cuenta.h"
 
 typedef struct {
@@ -8,12 +8,7 @@ typedef struct {
     double monto; // Monto de la operación (positivo para depósitos, negativo para retiros)
 } InformeOperacion;
 
-PtrLista inicializarLista(){
-    PtrLista lista=crearLista();
-    return lista;
-}
-
-void ingresarDinero(CuentaPtr cuenta, double monto, const char* cajero, PtrLista listaTransacciones) {
+void ingresarDinero(CuentaPtr cuenta, double monto, const char* cajero, PtrPila pilaTransacciones) {
     // Verificar que el monto a ingresar sea positivo
     if (monto <= 0) {
         printf("El monto a ingresar debe ser mayor que cero.\n");
@@ -23,19 +18,18 @@ void ingresarDinero(CuentaPtr cuenta, double monto, const char* cajero, PtrLista
     // Actualizar el saldo disponible en la cuenta
     cuenta->saldo += monto;
 
-    // Registra la operación en la lista de transacciones
+    // Registra la operación en la pila de transacciones
     InformeOperacion informe;
-    strcpy(informe.cliente, cuenta->numeroCuenta);
+    informe.cliente = cuenta->numeroCuenta;
     strcpy(informe.cajero, cajero);
     informe.monto = monto;
-    agregarDatoLista(listaTransacciones, &informe);
+    apilar(pilaTransacciones, &informe);
 
     // Imprimir un mensaje de confirmación
-    printf("Se ingresaron %.2lf pesos a la cuenta de %s. Nuevo saldo: %.2lf\n", monto, cuenta->numeroCuenta, cuenta->saldo);
+    printf("Se ingresaron %.2lf pesos a la cuenta de %d. Nuevo saldo: %.2lf\n", monto, cuenta->numeroCuenta, cuenta->saldo);
 }
 
-// Función para retirar dinero de una cuenta y registrar la operación
-void retirarDinero(CuentaPtr cuenta, double monto, const char* cajero, PtrLista listaTransacciones) {
+void retirarDinero(CuentaPtr cuenta, double monto, const char* cajero, PtrPila pilaTransacciones) {
     // Verificar que el monto a retirar sea positivo
     if (monto <= 0) {
         printf("El monto a retirar debe ser mayor que cero.\n");
@@ -51,32 +45,39 @@ void retirarDinero(CuentaPtr cuenta, double monto, const char* cajero, PtrLista 
     // Realizar el retiro y actualizar el saldo disponible
     cuenta->saldo -= monto;
 
-    // Registra la operación en la lista de transacciones
+    // Registra la operación en la pila de transacciones
     InformeOperacion informe;
-    strcpy(informe.cliente, cuenta->numeroCuenta);
+    informe.cliente = cuenta->numeroCuenta;
     strcpy(informe.cajero, cajero);
     informe.monto = -monto; // Monto negativo para indicar retiro
-    agregarDatoLista(listaTransacciones, &informe);
+    apilar(pilaTransacciones, &informe);
 
     // Imprimir un mensaje de confirmación
-    printf("Se retiraron %.2lf pesos de la cuenta de %s. Nuevo saldo: %.2lf\n", monto, cuenta->numeroCuenta, cuenta->saldo);
+    printf("Se retiraron %.2lf pesos de la cuenta de %d. Nuevo saldo: %.2lf\n", monto, cuenta->numeroCuenta, cuenta->saldo);
 }
 
-void mostrarInformes(PtrLista lista) {
+void mostrarInformes(PtrPila pila) {
     printf("Informe de operaciones:\n");
 
-    // Iteramos sobre la lista usando longitudLista para saber cuántos informes hay
-    int longitud = longitudLista(lista);
+    // Creamos una pila auxiliar para invertir el orden de los informes
+    PtrPila pilaAuxiliar = crearPila();
 
-    for (int i = 0; i < longitud; i++) {
-        // Obtenemos el informe en la posición i de la lista
-        InformeOperacion* informe = (InformeOperacion*)getDatoLista(lista, i);
+    // Desapilamos los elementos de la pila original y los apilamos en la auxiliar
+    while (!pilaVacia(pila)) {
+        InformeOperacion* informe = (InformeOperacion*)desapilar(pila);
+        apilar(pilaAuxiliar, informe);
+    }
 
-
+    // Iteramos sobre la pila auxiliar para mostrar los informes
+    while (!pilaVacia(pilaAuxiliar)) {
+        InformeOperacion* informe = (InformeOperacion*)desapilar(pilaAuxiliar);
         // Suponiendo que InformeOperacion tiene campos nombreCliente, monto, etc.
         printf("Cliente: %d\n", informe->cliente);
         printf("Cajero: %s\n", informe->cajero);
         printf("Monto: %.2f\n", informe->monto);
         // Aquí muestra otros campos del informe según sea necesario
     }
+
+    // Destruimos la pila auxiliar
+    destruirPila(pilaAuxiliar);
 }

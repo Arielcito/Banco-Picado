@@ -9,102 +9,93 @@
 #include "OperacionImpuestos.h"
 #include "turno.h"
 #include "cheque.h"
+#include <time.h> // Para trabajar con fechas y horas
 
 void* obtenerMemoria(size_t tamanio, const char *mensajeError);
 
-// Prototipos de las funciones del menú
-void mostrarMenu();
-void gestionarBanco();
-void gestionarCaja();
-void gestionarCajero();
-void gestionarCliente();
-void gestionarOperacionCuenta();
-void gestionarOperacionImpuestos();
-void gestionarCheque();
-void gestionarTurno();
-void limpiarPantalla();
 
-int main() {
-    int opcion;
+int main()
+{
+    Sucursal* sucursal1 = crearSucursal(1, "Sucursal Plaza de Mayo");
+    printf("Contenido de sucursal1: %s\n", sucursal1->domicilio);
 
-    do {
-        mostrarMenu();
-        printf("Ingrese su opción: ");
-        scanf("%d", &opcion);
+    Caja* caja1 = crearCaja(1, 1000.00);
+    printf("Contenido de caja1: ID: %d, Saldo: %.2lf\n", caja1->numeroCaja, caja1->montoInicial);
+    Caja* caja2 = crearCaja(2, 1000.00);
+    printf("Contenido de caja2: ID: %d, Saldo: %.2lf\n", caja2->numeroCaja, caja2->montoInicial);
 
-        switch (opcion) {
-            case '1':
-                seleccionarSucursal();
-                break;
-            case '2':
-                operacionCajero();
-                break;
-            case '3':
-                operacionCliente();
-                break;
-            case '4':
-                generarInforme();
-                break;
-            case '5':
-                configurarUsuarios();
-                break;
-            case '0':
-                printf("Exiting...\n");
-                break;
-            default:
-                printf("Invalid choice. Please try again.\n");
-                break;
-        }
+    Cajero* cajero1 = crearCajero("Lo Nigro", "Matias", 2, 2);
+    printf("Contenido de cajero1:\n");
+    printf("Apellido: %s\n", cajero1->apellido);
+    printf("Nombre: %s\n", cajero1->nombre);
+    printf("ID: %d\n", cajero1->cuil);
+    printf("ID de Caja: %d\n", cajero1->numeroLegajo);
 
-        limpiarPantalla();
-    } while (opcion != 8);
-    printf("Saliendo del programa. ¡Hasta luego!\n");
+    Cajero* cajero2 = crearCajero("Serato", "Ariel", 1, 1);
+    printf("Contenido de cajero2:\n");
+    printf("Apellido: %s\n", cajero2->apellido);
+    printf("Nombre: %s\n", cajero2->nombre);
+    printf("ID: %d\n", cajero2->cuil);
+    printf("ID de Caja: %d\n", cajero2->numeroLegajo);
+
+    Cliente* cliente1 = crearCliente(123456789, "López", "Juan", "Calle 123");
+    Cliente* cliente2 = crearCliente(987654321, "Gómez", "María", "Avenida 456");
+
+    Cuenta* cuenta1 = crearCuenta(1, *cliente1, 1000.0);
+    Cuenta* cuenta2 = crearCuenta(2, *cliente2, 2000.0);
+
+// Imprime la información de la cuenta 1
+    printf("Información de la cuenta 1:\n");
+    printf("Número de cuenta: %d\n", getNumeroCuenta(cuenta1));
+    printf("Saldo: %.2lf\n", getSaldo(cuenta1));
+
+// Imprime la información de la cuenta 2
+    printf("\nInformación de la cuenta 2:\n");
+    printf("Número de cuenta: %d\n", getNumeroCuenta(cuenta2));
+    printf("Saldo: %.2lf\n", getSaldo(cuenta2));
+
+// Imprime la información del titular de la cuenta 1
+    printf("\nInformación del titular de la cuenta 1:\n");
+    printf("DNI: %ld\n", getDniCliente(&cuenta1->titular));
+    printf("Apellido: %s\n", getApellidoCliente(&cuenta1->titular));
+    printf("Nombre: %s\n", getNombreCliente(&cuenta1->titular));
+    printf("Domicilio: %s\n", getDomicilioCliente(&cuenta1->titular));
+
+// Imprime la información del titular de la cuenta 2
+    printf("\nInformación del titular de la cuenta 2:\n");
+    printf("DNI: %ld\n", getDniCliente(&cuenta2->titular));
+    printf("Apellido: %s\n", getApellidoCliente(&cuenta2->titular));
+    printf("Nombre: %s\n", getNombreCliente(&cuenta2->titular));
+    printf("Domicilio: %s\n", getDomicilioCliente(&cuenta2->titular));
+
+    // Obtener la fecha y hora actual
+    time_t fechaHoraActual;
+    time(&fechaHoraActual);
+
+    // Crear una operación en cuenta
+    OperacionCuenta* operacion = crearOperacionCuenta(fechaHoraActual, 500.0, 300.0, cuenta1);
+
+    // Realizar la operación en la cuenta
+    double montoTotal = getMontoCheques(operacion) + getMontoEfectivo(operacion);
+    double saldoAnterior = getSaldo(cuenta1);
+    double nuevoSaldo = saldoAnterior + montoTotal;
+    setSaldo(&cuenta1, nuevoSaldo);
+
+    // Imprimir el resultado
+    printf("\nOperación realizada en cuenta:\n");
+    printf("Fecha y hora: %s", ctime(&fechaHoraActual));
+    printf("Monto total: %.2lf\n", montoTotal);
+    printf("Saldo anterior: %.2lf\n", saldoAnterior);
+    printf("Nuevo saldo: %.2lf\n", nuevoSaldo);
+    printf("Saldo: %.2lf\n", getSaldo(cuenta1));
+    // Finalmente, destruir la operación si ya no se necesita
+    operacion = destruirOperacionCuenta(operacion);
+// Finalmente, destruye los objetos que creaste
+    cliente1 = destruirCliente(cliente1);
+    cliente2 = destruirCliente(cliente2);
+    cuenta1 = destruirCuenta(cuenta1);
+    cuenta2 = destruirCuenta(cuenta2);
+
     return 0;
 }
 
-void mostrarMenu() {
-    printf("****** Menú Principal ******\n");
-    printf("1. Seleccionar sucursal\n");
-    printf("2. Operacion cajero\n");
-    printf("3. Operacion cliente\n");
-    printf("4. Informes\n");
-    printf("5. ABM usuarios\n");
-    printf("0. Exit\n");
-    printf("Enter your choice: ");
-}
-
-// Function for selecting a branch
-void seleccionarSucursal() {
-    printf("You selected 'Seleccionar sucursal'\n");
-    // Add your code for selecting a branch here
-}
-
-// Function for cashier operation
-void operacionCajero() {
-    printf("You selected 'Operacion cajero'\n");
-    // Add your code for cashier operation here
-}
-
-// Function for client operation
-void operacionCliente() {
-    printf("You selected 'Operacion cliente'\n");
-    // Add your code for client operation here
-}
-
-// Function for generating reports
-void generarInforme() {
-    printf("You selected 'Informes'\n");
-    // Add your code for generating reports here
-}
-
-// Function for user management
-void configurarUsuarios() {
-    printf("You selected 'ABM usuarios'\n");
-    // Add your code for user management here
-}
-
-void limpiarPantalla() {
-    // Limpia la pantalla (función específica del sistema operativo)
-    //system("clear"); // Para sistemas Unix/Linux
-    system("cls"); // Para sistemas Windows
-}

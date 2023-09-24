@@ -249,7 +249,7 @@
 	"caja.h"
 	<stdlib.h>
 
-1694986178 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\cajero.c
+1695581813 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\cajero.c
 	"cajero.h"
 	<stdlib.h>
 	<string.h>
@@ -309,7 +309,7 @@
 
 1695506147 c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\util.h
 
-1695078080 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\main.c
+1695587936 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -321,6 +321,7 @@
 	"OperacionImpuestos.h"
 	"turno.h"
 	"cheque.h"
+	<time.h>
 
 1695506147 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\cola.c
 	<stdbool.h>
@@ -365,4 +366,9 @@
 	<stdbool.h>
 	"Nodo.h"
 	"Util.h"
+
+1695569963 source:c:\users\user\downloads\trabajopracticogrupal\trabajopracticogrupal\trabajopracticogrupal\operacioncaja.c
+	<stdio.h>
+	"Pila.h"
+	"Cuenta.h"
 

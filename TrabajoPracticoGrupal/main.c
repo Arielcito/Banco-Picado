@@ -10,7 +10,7 @@
 #include "turno.h"
 #include "cheque.h"
 #include <time.h> // Para trabajar con fechas y horas
-
+#include "Menu.c"
 void* obtenerMemoria(size_t tamanio, const char *mensajeError);
 
 
@@ -95,6 +95,8 @@ int main()
     cliente2 = destruirCliente(cliente2);
     cuenta1 = destruirCuenta(cuenta1);
     cuenta2 = destruirCuenta(cuenta2);
+
+    mostarMenu();
 
     return 0;
 }

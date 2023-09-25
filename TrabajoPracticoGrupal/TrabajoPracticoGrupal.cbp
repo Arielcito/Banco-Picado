@@ -63,6 +63,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Lista.h" />
+		<Unit filename="Menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="Nodo.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -78,6 +81,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="OperacionImpuestos.h" />
+		<Unit filename="OperacionTurno.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="Pila.c">
 			<Option compilerVar="CC" />
 		</Unit>

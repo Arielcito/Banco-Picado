@@ -88,6 +88,18 @@ int main()
     printf("Saldo anterior: %.2lf\n", saldoAnterior);
     printf("Nuevo saldo: %.2lf\n", nuevoSaldo);
     printf("Saldo: %.2lf\n", getSaldo(cuenta1));
+
+    ColaPtr colaTurnos = crearCola();
+
+    // Ejemplo de uso:
+    solicitarTurno(colaTurnos, 'C');
+    solicitarTurno(colaTurnos, 'I');
+    llamarProximoTurno(colaTurnos);
+    llamarProximoTurno(colaTurnos);
+
+    // Liberar la memoria de la cola
+    destruirCola(colaTurnos);
+
     // Finalmente, destruir la operación si ya no se necesita
     operacion = destruirOperacionCuenta(operacion);
 // Finalmente, destruye los objetos que creaste

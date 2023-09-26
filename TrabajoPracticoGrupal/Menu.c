@@ -26,7 +26,7 @@ void operacionCliente();
 void generarInforme();
 void configurarUsuarios();
 
-int mostarMenu()
+void mostrarMenuPrincipal()
 {
     int opcion = 0;
 
@@ -49,6 +49,7 @@ int mostarMenu()
                 mostrarMenuCajero(opcion);
             }
             while(opcion!=0);
+            opcion = ' ';
             break;
         case 3:
             operacionCliente();
@@ -72,41 +73,10 @@ int mostarMenu()
         }
     }
     while (opcion != 0);
-    printf("Saliendo del programa. ÁHasta luego!\n");
-    return 0;
+    printf("Saliendo del programa. Hasta luego!\n");
 }
 
-void menuPrincipal()
-{
-    printf("** Menœ Principal **\n");
-    printf("1. Seleccionar sucursal\n");
-    printf("2. Operacion cajero\n");
-    printf("3. Operacion cliente\n");
-    printf("4. Informes\n");
-    printf("5. ABM usuarios\n");
-    printf("0. Salir\n");
-}
-
-void submenuCajero()
-{
-    printf("** Operacion Cajero **\n");
-    printf("1. Llamar Turno\n");
-    printf("2. Impuestos\n");
-    printf("3. Movimientos de cuenta\n");
-    printf("4. Informe del Cajero\n");
-    printf("0. Volver al menu principal\n");
-}
-
-void submenuABS()
-{
-    printf("** Menu ABS **");
-    printf("1. Altas\n");
-    printf("2. Bajas\n");
-    printf("3. Modificaciones\n");
-    printf("0. Volver al menu principal\n");
-}
-
-void mostarMenuCajero(int opcion)
+void mostrarMenuCajero(int opcion)
 {
     switch(opcion){
     case 1:
@@ -157,6 +127,40 @@ void mostrarMenuABS(int opcion){
     }
 }
 
+void menuPrincipal()
+{
+    printf("** Menœ Principal **\n");
+    printf("1. Seleccionar sucursal\n");
+    printf("2. Operacion cajero\n");
+    printf("3. Operacion cliente\n");
+    printf("4. Informes\n");
+    printf("5. ABM usuarios\n");
+    printf("0. Salir\n");
+}
+
+void submenuCajero()
+{
+    printf("** Operacion Cajero **\n");
+    printf("1. Llamar Turno\n");
+    printf("2. Impuestos\n");
+    printf("3. Movimientos de cuenta\n");
+    printf("4. Informe del Cajero\n");
+    printf("0. Volver al menu principal\n");
+}
+
+void submenuABS()
+{
+    printf("** Menu ABS **");
+    printf("1. Altas\n");
+    printf("2. Bajas\n");
+    printf("3. Modificaciones\n");
+    printf("0. Volver al menu principal\n");
+}
+
+void submenuAltas(){}
+
+
+
 void seleccionarSucursal()
 {
     printf("Seleccionar sucursal\n");
@@ -190,4 +194,3 @@ void limpiarPantalla()
     //system("clear"); // Para sistemas Unix/Linux
     system("cls"); // Para sistemas Windows
 }
-

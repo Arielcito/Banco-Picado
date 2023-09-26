@@ -2,12 +2,12 @@
 #include "Cola.h"
 
 // Función para solicitar un nuevo turno
-void solicitarTurno(ColaPtr colaTurnos, char tipoOperacion)
+void solicitarTurno(PtrCola colaTurnos, char tipoOperacion)
 {
     // Crear un nuevo turno
     Turno nuevoTurno;
     nuevoTurno.tipoOperacion = tipoOperacion;
-    nuevoTurno.numeroCorrelativo = obtenerNumeroCorrelativo(); // Debes implementar esta función.
+    // nuevoTurno.numeroCorrelativo = obtenerNumeroCorrelativo(); // Debes implementar esta función.
 
     // Encolar el nuevo turno
     encolar(colaTurnos, &nuevoTurno);
@@ -17,7 +17,7 @@ void solicitarTurno(ColaPtr colaTurnos, char tipoOperacion)
 }
 
 // Función para llamar al próximo turno
-void llamarProximoTurno(ColaPtr colaTurnos)
+void llamarProximoTurno(PtrCola colaTurnos)
 {
     // Verificar si la cola de turnos está vacía
     if (colaVacia(colaTurnos))

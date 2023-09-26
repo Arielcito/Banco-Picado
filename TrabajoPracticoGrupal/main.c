@@ -9,13 +9,16 @@
 #include "OperacionImpuestos.h"
 #include "turno.h"
 #include "cheque.h"
+#include "Cola.h"
+#include "Menu.h"
 #include <time.h> // Para trabajar con fechas y horas
-#include "Menu.c"
 void* obtenerMemoria(size_t tamanio, const char *mensajeError);
 
 
 int main()
 {
+    mostrarMenuPrincipal();
+
     Sucursal* sucursal1 = crearSucursal(1, "Sucursal Plaza de Mayo");
     printf("Contenido de sucursal1: %s\n", sucursal1->domicilio);
 
@@ -89,7 +92,7 @@ int main()
     printf("Nuevo saldo: %.2lf\n", nuevoSaldo);
     printf("Saldo: %.2lf\n", getSaldo(cuenta1));
 
-    ColaPtr colaTurnos = crearCola();
+    PtrCola colaTurnos = crearCola();
 
     // Ejemplo de uso:
     solicitarTurno(colaTurnos, 'C');
@@ -108,7 +111,6 @@ int main()
     cuenta1 = destruirCuenta(cuenta1);
     cuenta2 = destruirCuenta(cuenta2);
 
-    mostarMenu();
 
     return 0;
 }

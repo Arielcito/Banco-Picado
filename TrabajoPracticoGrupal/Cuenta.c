@@ -1,7 +1,7 @@
 #include "cuenta.h"
 #include <stdlib.h>
 
-Cuenta* crearCuenta(int numeroCuenta, Cliente titular, double saldo) {
+Cuenta* crearCuenta(int numeroCuenta, ClientePtr titular, double saldo) {
     Cuenta *cuenta = (Cuenta*)obtenerMemoria(sizeof(Cuenta), "Error al crear una nueva cuenta");
     cuenta->numeroCuenta = numeroCuenta;
     cuenta->titular = titular;
@@ -20,9 +20,8 @@ int getNumeroCuenta(CuentaPtr cuenta) {
     return cuenta->numeroCuenta;
 }
 
-// Getter para el titular de la cuenta
-Cliente getTitular(CuentaPtr cuenta) {
-    return cuenta->titular;
+ClientePtr getTitular(CuentaPtr cuenta) {
+    return &(cuenta->titular);
 }
 
 // Getter para el saldo de la cuenta
@@ -36,7 +35,7 @@ void setNumeroCuenta(CuentaPtr cuenta, int numero) {
 }
 
 // Setter para el titular de la cuenta
-void setTitular(CuentaPtr cuenta, Cliente titular) {
+void setTitular(CuentaPtr cuenta, ClientePtr titular) {
     cuenta->titular = titular;
 }
 

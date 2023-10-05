@@ -31,6 +31,26 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="ABMCajas.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ABMCajas.h" />
+		<Unit filename="ABMCajeros.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ABMCajeros.h" />
+		<Unit filename="ABMClientes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ABMClientes.h" />
+		<Unit filename="ABMCuentas.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ABMCuentas.h" />
+		<Unit filename="ABMSucursales.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ABMSucursales.h" />
 		<Unit filename="Banco.c">
 			<Option compilerVar="CC" />
 		</Unit>

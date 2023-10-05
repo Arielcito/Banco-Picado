@@ -14,7 +14,7 @@ typedef Cuenta* CuentaPtr;
 // Liberar la memoria asociada con la cuenta
 CuentaPtr destruirCuenta(CuentaPtr cuenta);
 
-CuentaPtr crearCuenta(int numeroCuenta, ClientePtr titular, double saldo);
+CuentaPtr crearCuenta(ClientePtr titular,int *numCuentas);
 // Getters & Setters
 int getNumeroCuenta(CuentaPtr cuenta);
 ClientePtr getTitular(CuentaPtr cuenta);

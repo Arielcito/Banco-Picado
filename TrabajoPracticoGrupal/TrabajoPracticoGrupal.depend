@@ -749,3 +749,216 @@
 1696432201 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmsucursales.h
 	"sucursal.h"
 
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\banco.c
+	"banco.h"
+	<stdlib.h>
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\banco.h
+	"sucursal.h"
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\sucursal.h
+	"caja.h"
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\caja.h
+	"turno.h"
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\turno.h
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\caja.c
+	"caja.h"
+	<stdlib.h>
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\cajero.c
+	"cajero.h"
+	<stdlib.h>
+	<string.h>
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\cajero.h
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\cheque.c
+	"cheque.h"
+	<stdlib.h>
+	<string.h>
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\cheque.h
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\client.c
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\cliente.c
+	"cliente.h"
+	<stdlib.h>
+	<string.h>
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\cliente.h
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\cola.c
+	<stdbool.h>
+	"Cola.h"
+	"Util.h"
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\cola.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"Nodo.h"
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\nodo.h
+	<stdio.h>
+	<stdlib.h>
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\util.h
+
+1696466369 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\cuenta.c
+	"cuenta.h"
+	<stdlib.h>
+
+1696462070 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\cuenta.h
+	"cliente.h"
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\lista.c
+	<stdbool.h>
+	"Lista.h"
+	"Util.h"
+	"Nodo.h"
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\lista.h
+	<stdbool.h>
+	"Nodo.h"
+	"Util.h"
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"banco.h"
+	"caja.h"
+	"cajero.h"
+	"cliente.h"
+	"OperacionCuenta.h"
+	"OperacionImpuestos.h"
+	"turno.h"
+	"cheque.h"
+	"Cola.h"
+	"Menu.h"
+	<time.h>
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\operacioncuenta.h
+	"cuenta.h"
+	<time.h>
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\operacionimpuestos.h
+	<time.h>
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\menu.h
+
+1696468780 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"banco.h"
+	"caja.h"
+	"cajero.h"
+	"cliente.h"
+	"OperacionCuenta.h"
+	"OperacionImpuestos.h"
+	"turno.h"
+	"cheque.h"
+	"ABMCajas.h"
+	"ABMCajeros.h"
+	"ABMClientes.h"
+	"ABMCuentas.h"
+	"ABMSucursales.h"
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\abmcajas.h
+	"caja.h"
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\abmcajeros.h
+	"cajero.h"
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\abmclientes.h
+	"cliente.h"
+
+1696462431 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\abmcuentas.h
+	"cuenta.h"
+
+1696468665 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\abmsucursales.h
+	"sucursal.h"
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\nodo.c
+	<stdio.h>
+	<stdlib.h>
+	"Nodo.h"
+	"Util.h"
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\operacioncaja.c
+	<stdio.h>
+	"Pila.h"
+	"Cuenta.h"
+
+1696460883 c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\pila.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"Nodo.h"
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\operacioncuenta.c
+	"OperacionCuenta.h"
+	<stdlib.h>
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\operacionimpuestos.c
+	"OperacionImpuestos.h"
+	<stdlib.h>
+	<string.h>
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\operacionturno.c
+	"Turno.h"
+	"Cola.h"
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\pila.c
+	<stdio.h>
+	<stdlib.h>
+	"Pila.h"
+	"Util.h"
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\sucursal.c
+	"sucursal.h"
+	<stdlib.h>
+	<string.h>
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\turno.c
+	"turno.h"
+	<stdlib.h>
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\util.c
+	<stdio.h>
+	<stdlib.h>
+	"util.h"
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\abmcajas.c
+	<stdio.h>
+	"Caja.h"
+	"lista.h"
+
+1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\abmcajeros.c
+	<stdio.h>
+	<stdlib.h>
+	"ABMCajeros.h"
+
+1696465926 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\abmclientes.c
+	<stdio.h>
+	<stdlib.h>
+	"cliente.h"
+	"lista.h"
+
+1696466369 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\abmcuentas.c
+	<stdio.h>
+	"cuenta.h"
+	"cliente.h"
+	"lista.h"
+
+1696468908 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\abmsucursales.c
+	<stdio.h>
+	<stdlib.h>
+	"sucursal.h"
+	"lista.h"
+

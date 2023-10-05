@@ -2,11 +2,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "sucursal.h"
+#include "lista.h"
 
-#define MAX_SUCURSALES 10
+#define MAX_SUCURSALES 2
 
 // Implementación de las funciones de ABM de sucursales
-void altaSucursal(SucursalPtr sucursales[], int *numSucursales)
+void altaSucursal(SucursalPtr listaSucursales, int *numSucursales)
 {
     if (*numSucursales < MAX_SUCURSALES)
     {
@@ -20,7 +21,8 @@ void altaSucursal(SucursalPtr sucursales[], int *numSucursales)
         scanf("%s", domicilio);
 
         // Crear la sucursal y agregarla al arreglo
-        sucursales[*numSucursales] = crearSucursal(numeroSucursal, domicilio);
+        SucursalPtr nuevaSucursal = crearSucursal(numeroSucursal, domicilio);
+        agregarDatoLista(listaSucursales,nuevaSucursal);
         (*numSucursales)++;
         printf("Sucursal agregada con éxito.\n");
     }
@@ -89,15 +91,25 @@ void modificarSucursal(SucursalPtr sucursales[], int numSucursales, int numeroSu
     }
 }
 
-void mostrarSucursales(SucursalPtr sucursales[], int numSucursales)
+
+void mostrarSucursales(SucursalPtr listaSucursal)
 {
+    PtrLista listaAux=crearLista();
+    agregarLista(listaAux,listaSucursal);
     printf("Lista de Sucursales:\n");
-    for (int i = 0; i < numSucursales; i++)
+    while(!listaVacia(listaAux))
     {
-        printf("Número de sucursal: %d, Domicilio: %s\n",
-               getNumeroSucursal(sucursales[i]),
-               getDomicilio(sucursales[i]));
+        SucursalPtr actualSucursal = getCabecera(listaAux);
+            printf("Número de sucursal: %d, Domicilio: %s \n",
+               getNumeroSucursal(actualSucursal),
+               getDomicilio(actualSucursal));
+
+            PtrLista listaADestruir=listaAux;
+            listaAux=getResto(listaAux);
+            destruirLista(listaADestruir,false);
     }
+    destruirLista(listaAux,false);
+    printf("\n");
 }
 
  void mostrarMenuSucursales()

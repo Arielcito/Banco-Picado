@@ -71,45 +71,32 @@ void bajaCliente(Cliente** listaClientes, int *numClientes, long dni)
     }
 }
 
-void modificarCliente(Cliente** listaClientes, int *numClientes, long dni)
+void modificarCliente(Cliente** listaClientes, int *numClientes, ClientePtr titular)
 {
     int indiceEncontrado = -1;
+    ClientePtr actualClient = titular;
+    // Solicitar los nuevos datos al usuario
+    char nuevoApellido[50];
+    char nuevoNombre[50];
+    char nuevoDomicilio[100];
 
-    for (int i = 0; i < numClientes; i++)
-    {
-        ClientePtr actualClient = getDatoLista(listaClientes,i);
-        if (getDniCliente(actualClient) == dni)
-        {
-            // Solicitar los nuevos datos al usuario
-            char nuevoApellido[50];
-            char nuevoNombre[50];
-            char nuevoDomicilio[100];
+    printf("Ingrese el nuevo apellido del cliente: ");
+    scanf("%s", nuevoApellido);
 
-            printf("Ingrese el nuevo apellido del cliente: ");
-            scanf("%s", nuevoApellido);
+    printf("Ingrese el nuevo nombre del cliente: ");
+    scanf("%s", nuevoNombre);
 
-            printf("Ingrese el nuevo nombre del cliente: ");
-            scanf("%s", nuevoNombre);
+    printf("Ingrese el nuevo domicilio del cliente: ");
+    scanf("%s", nuevoDomicilio);
 
-            printf("Ingrese el nuevo domicilio del cliente: ");
-            scanf("%s", nuevoDomicilio);
+    // Actualizar los datos del cliente
+    setApellidoCliente(actualClient, nuevoApellido);
+    setNombreCliente(actualClient, nuevoNombre);
+    setDomicilioCliente(actualClient, nuevoDomicilio);
+    printf("Cliente modificado con éxito.\n");
 
-            // Actualizar los datos del cliente
-            setApellidoCliente(actualClient, nuevoApellido);
-            setNombreCliente(actualClient, nuevoNombre);
-            setDomicilioCliente(actualClient, nuevoDomicilio);
-            printf("Cliente modificado con éxito.\n");
-
-            indiceEncontrado = i;
-            break; // Salir del bucle una vez que se ha encontrado y modificado el cliente
-        }
-    }
-
-    if (indiceEncontrado == -1)
-    {
-        printf("Cliente no encontrado.\n");
-    }
 }
+
 
 void mostrarClientes(Cliente** listaClientes, int *numClientes)
 {
@@ -119,26 +106,26 @@ void mostrarClientes(Cliente** listaClientes, int *numClientes)
     while(!listaVacia(listaAux))
     {
         ClientePtr actualClient = getCabecera(listaAux);
-            printf("DNI: %ld, Apellido: %s, Nombre: %s, Domicilio: %s\n",
-                   getDniCliente(actualClient),
-                   getApellidoCliente(actualClient),
-                   getNombreCliente(actualClient),
-                   getDomicilioCliente(actualClient));
-            PtrLista listaADestruir=listaAux;
-            listaAux=getResto(listaAux);
-            destruirLista(listaADestruir,false);
+        printf("DNI: %ld, Apellido: %s, Nombre: %s, Domicilio: %s\n",
+               getDniCliente(actualClient),
+               getApellidoCliente(actualClient),
+               getNombreCliente(actualClient),
+               getDomicilioCliente(actualClient));
+        PtrLista listaADestruir=listaAux;
+        listaAux=getResto(listaAux);
+        destruirLista(listaADestruir,false);
 
 
         destruirLista(listaAux,false);
         printf("\n");
     }
 }
-    void mostrarMenuClientes()
-    {
-        printf("Menu de Clientes:\n");
-        printf("1. Alta de cliente\n");
-        printf("2. Baja de cliente\n");
-        printf("3. Modificación de cliente\n");
-        printf("4. Mostrar clientes\n");
-        printf("5. Salir\n");
-    }
+void mostrarMenuClientes()
+{
+    printf("Menu de Clientes:\n");
+    printf("1. Alta de cliente\n");
+    printf("2. Baja de cliente\n");
+    printf("3. Modificación de cliente\n");
+    printf("4. Mostrar clientes\n");
+    printf("5. Salir\n");
+}

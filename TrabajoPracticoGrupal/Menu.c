@@ -37,10 +37,14 @@ void menuABMOperacionCuenta();
 void menuABMOperacionImpuestos();
 void menuABMTurno();
 void menuABMCheque();
+
+int sucursalActual = -1;
+
 void mostrarMenuPrincipal()
 {
     int opcion = 0;
-
+    SucursalPtr listaSucursales = NULL; // Inicializa la lista de clientes
+    int numSucursales = 0;
     do
     {
         menuPrincipal();
@@ -50,7 +54,7 @@ void mostrarMenuPrincipal()
         switch (opcion)
         {
         case 1:
-            seleccionarSucursal();
+            seleccionarSucursal(listaSucursales);
             break;
         case 2:
             do
@@ -70,31 +74,19 @@ void mostrarMenuPrincipal()
             break;
         case 5:
             // Opción para ABM Caja
-            menuABMCaja();
+            menuABMCuenta();
             break;
         case 6:
             // Opción para ABM Cajero
-            menuABMCajero();
+            menuABMSucursal(listaSucursales);
             break;
         case 7:
-            // Opción para ABM Cliente
-            menuABMCliente();
+            // Opción para ABM Turno
+            menuABMCajero();
             break;
         case 8:
-            // Opción para ABM OperacionCuenta
-            menuABMOperacionCuenta();
-            break;
-        case 9:
-            // Opción para ABM OperacionImpuestos
-            menuABMOperacionImpuestos();
-            break;
-        case 10:
-            // Opción para ABM Turno
-            menuABMTurno();
-            break;
-        case 11:
             // Opción para ABM Cheque
-            menuABMCuenta();
+            menuABMCaja();
             break;
         case 0:
             printf("Exiting...\n");
@@ -145,13 +137,10 @@ void menuPrincipal()
     printf("2. Operacion cajero\n");
     printf("3. Operacion cliente\n");
     printf("4. Informes\n");
-    printf("5. ABM Cajas\n");
-    printf("6. ABM Cajero\n");
-    printf("7. ABM Clientes\n");
-    printf("8. ABM OperacionCuenta\n");       // Add option for ABM of OperacionCuenta
-    printf("9. ABM OperacionImpuestos\n");    // Add option for ABM of OperacionImpuestos
-    printf("10. ABM Turno\n");                 // Add option for ABM of Turno
-    printf("11. ABM Cuenta\n");              // Add option for ABM of Cheque
+    printf("5. ABM Cuenta\n");
+    printf("6. ABM Sucursal\n");
+    printf("7. ABM Cajero\n");
+    printf("8. ABM Cajas\n");
     printf("0. Salir\n");
 }
 
@@ -167,15 +156,11 @@ void submenuCajero()
     printf("0. Volver al menu principal\n");
 }
 
-
-void menuABMCliente()
-{
-}
 void menuABMCuenta()
 {
     int opcion;
     Cliente* listaClientes = NULL; // Inicializa la lista de clientes
-    int numClientes = 0;
+    int *numClientes = 0;
     CuentaPtr listaCuentas = NULL; // Inicializa la lista de clientes
     int numCuentas = 0;
     do
@@ -192,15 +177,10 @@ void menuABMCuenta()
             int numeroCliente;
             double saldo;
 
-            printf("Ingrese el número de cuenta: ");
-            scanf("%d", &numeroCuenta);
-
             altaCliente(&listaClientes, &numClientes);
             ClientePtr titular = getCabecera(&listaClientes);
-            printf("Ingrese el saldo inicial de la cuenta: ");
-            scanf("%lf", &saldo);
 
-            altaCuenta(&listaCuentas, &numCuentas, numeroCuenta, *titular, saldo);
+            altaCuenta(&listaCuentas, &numCuentas, titular);
 
             break;
         }
@@ -221,18 +201,20 @@ void menuABMCuenta()
             printf("Ingrese el número de cuenta a modificar: ");
             scanf("%d", &numeroCuenta);
 
-            printf("Ingrese el nuevo número de cliente titular de la cuenta: ");
-            scanf("%d", &numeroCliente);
-
             // Verificar si el número de cliente es válido
-            if (numeroCliente >= 0 && numeroCliente < numClientes)
+            if (numeroCuenta >= 0 && numeroCuenta < 100)
             {
-                ClientePtr titular = clientes[numeroCliente];
+                for (int i = 1; i <= numClientes; i++)
+                {
+                    CuentaPtr cuentaActual = getDatoLista(&listaCuentas,i);
 
-                printf("Ingrese el nuevo saldo de la cuenta: ");
-                scanf("%lf", &saldo);
-
-                modificarCuenta(&listaCuentas, &numCuentas, numeroCuenta, *titular, saldo);
+                    if (getNumeroCuenta(cuentaActual) == numeroCuenta)
+                    {
+                        modificarCliente(&listaCuentas, &numCuentas, getTitular(cuentaActual));
+                        break; // Salir del bucle una vez que se ha encontrado y eliminado la cuenta
+                    }
+                }
+                printf("No se encontro el numero.\n");
             }
             else
             {
@@ -254,11 +236,10 @@ void menuABMCuenta()
     }
     while (opcion != 5);
 }
-void menuABMSucursal()
+void menuABMSucursal(SucursalPtr listaSucursales, int *numSucursales)
 {
     int opcion;
-    SucursalPtr listaSucursales = NULL; // Inicializa la lista de clientes
-    int numSucursales = 0;
+
     do
     {
         mostrarMenuSucursales();
@@ -289,7 +270,7 @@ void menuABMSucursal()
             break;
         }
         case 4:
-            mostrarSucursales(&listaSucursales, &numSucursales);
+            mostrarSucursales(&listaSucursales);
             break;
         case 5:
             printf("Volviendo al menú principal...\n");
@@ -363,9 +344,12 @@ void menuABMCaja()
     while (opcion != 0);
 }
 
-void seleccionarSucursal()
+void seleccionarSucursal(SucursalPtr listaSucursales)
 {
-    printf("Seleccionar sucursal\n");
+    mostrarSucursales(&listaSucursales);
+    printf("Ingrese el número de sucursal: ");
+    scanf("%d", &sucursalActual);
+    printf("Ha seleccionado la sucursal %d.\n", sucursalActual);
 }
 
 void operacionCajero()

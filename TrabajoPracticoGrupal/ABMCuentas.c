@@ -6,14 +6,15 @@
 #define MAX_CUENTAS 100
 
 // Implementación de las funciones de ABM de cuentas
-void altaCuenta(CuentaPtr* listaCuentas, int *numCuentas, int numeroCuenta, ClientePtr titular, double saldo)
+void altaCuenta(CuentaPtr* listaCuentas, int *numCuentas, ClientePtr titular)
 {
     if (*numCuentas < MAX_CUENTAS)
     {
         // Crear la cuenta y agregarla al arreglo
-        CuentaPtr nuevaCuenta = crearCuenta(numeroCuenta, titular, saldo);
-        agregarDatoLista(listaCuentas,nuevaCuenta);
         (*numCuentas)++;
+        CuentaPtr nuevaCuenta = crearCuenta(titular,*numCuentas);
+        agregarDatoLista(listaCuentas,nuevaCuenta);
+
         printf("Cuenta agregada con éxito.\n");
     }
     else
@@ -75,17 +76,8 @@ void modificarCuenta(CuentaPtr* listaCuentas, int *numCuentas, int numeroCuenta,
 
 void mostrarCuentas(CuentaPtr* listaCuentas, int *numCuentas)
 {
-    printf("Lista de Cuentas:\n");
-    for (int i = 0; i < numCuentas; i++)
-    {
-
-    }
-}
-
-void mostrarClientes(Cliente** listaClientes, int *numClientes)
-{
     PtrLista listaAux=crearLista();
-    agregarLista(listaAux,listaClientes);
+    agregarLista(listaAux,listaCuentas);
     printf("Lista de Clientes:\n");
     while(!listaVacia(listaAux))
     {
@@ -98,11 +90,9 @@ void mostrarClientes(Cliente** listaClientes, int *numClientes)
             PtrLista listaADestruir=listaAux;
             listaAux=getResto(listaAux);
             destruirLista(listaADestruir,false);
-
-
-        destruirLista(listaAux,false);
-        printf("\n");
     }
+    destruirLista(listaAux,false);
+    printf("\n");
 }
 
 void mostrarMenuCuentas()

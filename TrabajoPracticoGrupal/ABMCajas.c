@@ -79,7 +79,9 @@ void modificarCaja(CajaPtr cajas[], int numCajas, int numeroCaja, double montoIn
 
 void mostrarCajas(CajaPtr cajas[], int numCajas)
 {
+    printf("-------------------------\n");
     printf("Lista de Cajas:\n");
+    printf("-------------------------\n\n");
     for (int i = 0; i < numCajas; i++)
     {
         printf("Número de caja: %d, Monto inicial: %.2f\n",

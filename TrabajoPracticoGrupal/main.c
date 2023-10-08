@@ -12,11 +12,15 @@
 #include "Cola.h"
 #include "Menu.h"
 #include <time.h> // Para trabajar con fechas y horas
+#include <locale.h>
 void* obtenerMemoria(size_t tamanio, const char *mensajeError);
 
 
 int main()
 {
+    setlocale(LC_ALL, "");
+    // Declarar una cola de turnos
+
     mostrarMenuPrincipal();
 
     return 0;

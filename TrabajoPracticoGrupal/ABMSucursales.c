@@ -115,6 +115,7 @@ void mostrarSucursales(SucursalPtr listaSucursal)
  void mostrarMenuSucursales()
 {
     printf("Menu de Sucursales:\n");
+    printf("-------------------------\n\n");
     printf("1. Alta de sucursal\n");
     printf("2. Baja de sucursal\n");
     printf("3. Modificación de sucursal\n");

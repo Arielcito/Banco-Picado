@@ -7,7 +7,7 @@
 #define MAX_CLIENTES 100
 
 // Implementación de las funciones de ABM de clientes
-void    altaCliente(Cliente** listaClientes, int* numClientes)
+void altaCliente(Cliente** listaClientes, int* numClientes)
 {
     if (*numClientes < MAX_CLIENTES)
     {
@@ -123,6 +123,7 @@ void mostrarClientes(Cliente** listaClientes, int *numClientes)
 void mostrarMenuClientes()
 {
     printf("Menu de Clientes:\n");
+    printf("-------------------------\n\n");
     printf("1. Alta de cliente\n");
     printf("2. Baja de cliente\n");
     printf("3. Modificación de cliente\n");

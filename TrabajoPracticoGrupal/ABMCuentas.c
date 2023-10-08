@@ -98,6 +98,7 @@ void mostrarCuentas(CuentaPtr* listaCuentas, int *numCuentas)
 void mostrarMenuCuentas()
 {
     printf("Menu de Cuenta:\n");
+    printf("-------------------------\n\n");
     printf("1. Alta de Cuenta\n");
     printf("2. Baja de Cuenta\n");
     printf("3. Modificaci�n de Cuenta\n");

@@ -122,6 +122,7 @@ void mostrarCajeros(CajeroPtr cajeros[], int numCajeros)
 void mostrarMenuCajeros()
 {
     printf("Menu de Cajeros:\n");
+    printf("-------------------------\n\n");
     printf("1. Alta de cajero\n");
     printf("2. Baja de cajero\n");
     printf("3. Modificaci�n de cajero\n");

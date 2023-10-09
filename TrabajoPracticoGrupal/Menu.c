@@ -27,7 +27,7 @@ void mostarMenuCajero();
 void mostrarMenuABS();
 void limpiarPantalla();
 void submenuCajero();
-void seleccionarSucursal();
+SucursalPtr seleccionarSucursal();
 void operacionCajero();
 void operacionCliente();
 void generarInforme();
@@ -87,7 +87,10 @@ void mostrarMenuPrincipal()
 
     do
     {
-        menuPrincipal();
+        SucursalPtr sucursalSeleccionada = seleccionarSucursal(listaSucursales);
+
+        menuPrincipal(sucursalActual);
+        printf("Sucursal Actual: %s \n", getDomicilio(sucursalSeleccionada));
         printf("Ingrese su opción: ");
         scanf("%d", &opcion);
 
@@ -400,7 +403,7 @@ void menuABMCaja()
     }
     while (opcion != 0);
 }
-void seleccionarSucursal(SucursalPtr listaSucursales)
+SucursalPtr seleccionarSucursal(SucursalPtr listaSucursales)
 {
     int opcion = 0;
     for(int i = 0; i <3;i++){
@@ -413,6 +416,7 @@ void seleccionarSucursal(SucursalPtr listaSucursales)
 
     SucursalPtr sucursal = getDatoLista(listaSucursales,opcion+1);
     printf("Ha seleccionado la sucursal %d. %s\n", opcion,getDomicilio(sucursal));
+    return sucursal;
 }
 void operacionCajero()
 {
@@ -562,47 +566,68 @@ void menuMovimientosDeCuenta(CuentaPtr cuenta, const char* cajero, PtrPila pilaT
     }
     while (opcion != 4);
 }
-// Function for generating reports
-void generarInforme(OperacionCuentaPtr operacion)
-{
-    printf("You selected 'Informes'\n");
-    // Add your code for generating reports here
-}
+// Función para generar el informe de operaciones por sucursal, cliente y cajero
+void generarInforme(OperacionCuentaPtr pila) {
+    /*
+     // Estructura para mantener las estadísticas por sucursal
+    typedef struct {
+        char nombre[50];   // Nombre de la sucursal
+        double total;      // Total operado por la sucursal
+    } EstadisticaSucursal;
 
-void configurarUsuarios()
-{
-    printf("You selected 'ABM usuarios'\n");
-}
-void menuABMBanco()
-{
-    printf("You selected ABMBanco\n");
-}
+    const int MAX_SUCURSALES = 3;
+    EstadisticaSucursal estadisticas[MAX_SUCURSALES];
+    int numSucursales = 0;
 
+    // Inicializar las estadísticas
+    for (int i = 0; i < MAX_SUCURSALES; i++) {
+        estadisticas[i].total = 0.0;
+    }
+
+    // Procesar las operaciones y calcular totales por sucursal
+    while (pila->cima != NULL) {
+        OperacionCuenta operacion = desapilarOperacion(pila);
+
+        // Buscar si ya se ha registrado esta sucursal
+        int indiceSucursal = -1;
+        for (int i = 0; i < numSucursales; i++) {
+            if (strcmp(estadisticas[i].nombre, operacion.sucursal) == 0) {
+                indiceSucursal = i;
+                break;
+            }
+        }
+
+        // Si no se ha registrado, agregarla a las estadísticas
+        if (indiceSucursal == -1) {
+            strncpy(estadisticas[numSucursales].nombre, operacion.sucursal, sizeof(estadisticas[numSucursales].nombre));
+            numSucursales++;
+            indiceSucursal = numSucursales - 1;
+        }
+
+        // Actualizar el total operado por la sucursal
+        estadisticas[indiceSucursal].total += operacion.monto;
+    }
+
+    // Imprimir el informe
+    printf("Informe de Total Operado por Sucursal:\n");
+    for (int i = 0; i < numSucursales; i++) {
+        printf("Sucursal: %s, Total Operado: %.2lf\n", estadisticas[i].nombre, estadisticas[i].total);
+    }
+
+    // Calcular y mostrar el total general
+    double totalGeneral = 0.0;
+    for (int i = 0; i < numSucursales; i++) {
+        totalGeneral += estadisticas[i].total;
+    }
+    printf("Total General Operado en Todas las Sucursales: %.2lf\n", totalGeneral);
+    */
+}
 
 void menuABMCajero()
 {
     printf("You selected ABMCajero\n");
 }
 
-void menuABMOperacionCuenta()
-{
-    printf("You selected ABMOperacionCuent\n");
-}
-
-void menuABMOperacionImpuestos()
-{
-    printf("You selected ABMOperacionImpuestos\n");
-}
-
-void menuABMTurno()
-{
-    printf("You selected ABMTurno\n");
-}
-
-void menuABMCheque()
-{
-    printf("You selected ABMCheque\n");
-}
 void limpiarPantalla()
 {
     // Limpia la pantalla (funci—n espec’fica del sistema operativo)

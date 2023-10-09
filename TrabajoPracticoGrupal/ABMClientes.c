@@ -102,6 +102,7 @@ void mostrarClientes(Cliente** listaClientes, int *numClientes)
 {
     PtrLista listaAux=crearLista();
     agregarLista(listaAux,listaClientes);
+
     printf("Lista de Clientes:\n");
     while(!listaVacia(listaAux))
     {
@@ -114,11 +115,9 @@ void mostrarClientes(Cliente** listaClientes, int *numClientes)
         PtrLista listaADestruir=listaAux;
         listaAux=getResto(listaAux);
         destruirLista(listaADestruir,false);
-
-
-        destruirLista(listaAux,false);
-        printf("\n");
     }
+    destruirLista(listaAux,false);
+        printf("\n");
 }
 void mostrarMenuClientes()
 {

@@ -2,15 +2,14 @@
 #include "Cola.h"
 int obtenerNumeroCorrelativo();
 // Función para solicitar un nuevo turno
-void solicitarTurno(TurnoPtr colaTurnos, char tipoOperacion)
+void solicitarTurno(TurnoPtr colaTurnos, char tipoOperacion,CuentaPtr cuenta)
 {
     int numeroCorrelativo = obtenerNumeroCorrelativo(); // Debes implementar esta función.
     // Crear un nuevo turno
-    TurnoPtr nuevoTurno = crearTurno(tipoOperacion,numeroCorrelativo);
+    TurnoPtr nuevoTurno = crearTurno(tipoOperacion,numeroCorrelativo,cuenta);
 
     // Encolar el nuevo turno
     encolar(colaTurnos, nuevoTurno);
-
 
     // Imprimir mensaje de confirmación
     printf("Turno %c%d solicitado con éxito.\n", nuevoTurno->tipoOperacion, nuevoTurno->numeroCorrelativo);
@@ -24,7 +23,7 @@ int obtenerNumeroCorrelativo()
 }
 
 // Función para llamar al próximo turno
-void llamarProximoTurno(TurnoPtr colaTurnos)
+CuentaPtr llamarProximoTurno(TurnoPtr colaTurnos)
 {
     // Verificar si la cola de turnos está vacía
     if (colaVacia(colaTurnos))
@@ -36,9 +35,7 @@ void llamarProximoTurno(TurnoPtr colaTurnos)
     // Desencolar el próximo turno
     TurnoPtr proximoTurno = desencolar(colaTurnos);
 
-    // Imprimir el turno llamado
     printf("Llamando al turno %c%d.\n", proximoTurno->tipoOperacion, proximoTurno->numeroCorrelativo);
 
-    // Liberar la memoria del turno llamado
-    free(proximoTurno);
+    return proximoTurno->cuenta;
 }

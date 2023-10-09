@@ -1,9 +1,10 @@
 #include "turno.h"
 #include <stdlib.h>
 
-Turno* crearTurno(char tipoOperacion, int numeroCorrelativo) {
+Turno* crearTurno(char tipoOperacion, int numeroCorrelativo, CuentaPtr cuenta) {
     Turno *turno = (Turno*)obtenerMemoria(sizeof(Turno), "Error al crear un nuevo turno");
     turno->tipoOperacion = tipoOperacion;
+    turno->cuenta = cuenta;
     turno->numeroCorrelativo = numeroCorrelativo;
     // Inicializar otros campos si es necesario
     return turno;
@@ -24,6 +25,10 @@ int getNumeroCorrelativo(TurnoPtr turno) {
     return turno->numeroCorrelativo;
 }
 
+// Getter para el número correlativo del turno
+CuentaPtr getCuentaAAtender(TurnoPtr turno) {
+    return turno->cuenta;
+}
 // Setter para el tipo de operación del turno
 void setTipoOperacion(TurnoPtr turno, char tipoOperacion) {
     turno->tipoOperacion = tipoOperacion;

@@ -74,27 +74,35 @@ void modificarCuenta(CuentaPtr* listaCuentas, int *numCuentas, int numeroCuenta,
     }
 }
 
-void mostrarCuentas(CuentaPtr* listaCuentas, int *numCuentas)
+void mostrarCuentas(CuentaPtr** listaCuentas, int *numCuentas)
 {
-    PtrLista listaAux=crearLista();
+    CuentaPtr listaAux=crearLista();
     agregarLista(listaAux,listaCuentas);
-    printf("Lista de Clientes:\n");
+
+    printf("Lista de Cuentas:\n");
     while(!listaVacia(listaAux))
     {
         CuentaPtr actualClient = getCabecera(listaAux);
-            printf("Número de cuenta: %d, Titular: %s %s, Saldo: %.2f\n",
-               getNumeroCuenta(actualClient),
-               getNombreCliente(getTitular(actualClient)),
-               getApellidoCliente(getTitular(actualClient)),
-               getSaldo(actualClient));
-            PtrLista listaADestruir=listaAux;
-            listaAux=getResto(listaAux);
-            destruirLista(listaADestruir,false);
+        mostrarCuenta(actualClient);
+
+        CuentaPtr listaADestruir=listaAux;
+        listaAux=getResto(listaAux);
+        destruirLista(listaADestruir,false);
     }
     destruirLista(listaAux,false);
     printf("\n");
+
 }
 
+void mostrarCuenta(CuentaPtr actualClient)
+{
+    printf("Número de cuenta: %d, Titular: %s %s, DNI: %d , Saldo: %.2f\n",
+           getNumeroCuenta(actualClient),
+           getNombreCliente(getTitular(actualClient)),
+           getApellidoCliente(getTitular(actualClient)),
+           getDniCliente(getTitular(actualClient)),
+           getSaldo(actualClient));
+}
 void mostrarMenuCuentas()
 {
     printf("Menu de Cuenta:\n");

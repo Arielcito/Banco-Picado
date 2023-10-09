@@ -8,6 +8,10 @@ typedef struct {
     double monto; // Monto de la operación (positivo para depósitos, negativo para retiros)
 } InformeOperacion;
 
+typedef struct {
+    char cajero[100]; // Nombre del cajero
+    double monto; // Monto de la operación (positivo para depósitos, negativo para retiros)
+} Movimiento;
 void ingresarDinero(CuentaPtr cuenta, const char* cajero, PtrPila pilaTransacciones) {
     // Solicitar al usuario el monto a ingresar
     double monto;
@@ -65,47 +69,14 @@ void retirarDinero(CuentaPtr cuenta, const char* cajero, PtrPila pilaTransaccion
     printf("Se retiraron %.2lf pesos de la cuenta de %d. Nuevo saldo: %.2lf\n", monto, cuenta->numeroCuenta, cuenta->saldo);
 }
 
-void mostrarInformes(PtrPila pila) {
-
 // Función para consultar el saldo de una cuenta
 void consultarSaldo(CuentaPtr cuenta) {
     printf("Saldo disponible en la cuenta: %.2lf\n", getSaldo(cuenta));
 }
 
-// Estructura para registrar movimientos
-typedef struct {
-    char cajero[50]; // Nombre del cajero
-    double monto;   // Monto involucrado en el movimiento
-} Movimiento;
-
 // Función para consultar los movimientos realizados en una cuenta
-void consultarMovimientos(PtrPila pilaTransacciones) {
-    if (estaVaciaPila(pilaTransacciones)) {
-        printf("No hay movimientos registrados en esta cuenta.\n");
-    } else {
-        printf("Movimientos realizados en la cuenta:\n");
 
-        // Utilizamos una pila temporal para imprimir los movimientos en orden
-        PtrPila pilaTemporal = crearPila();
-
-        // Mientras la pila original no esté vacía, copiamos sus elementos en la pila temporal
-        while (!estaVaciaPila(pilaTransacciones)) {
-            Movimiento *movimiento = (Movimiento *)cima(pilaTransacciones);
-            apilar(pilaTemporal, movimiento);
-            desapilar(pilaTransacciones);
-        }
-
-        // Ahora, desapilamos la pila temporal y mostramos los movimientos en orden
-        while (!estaVaciaPila(pilaTemporal)) {
-            Movimiento *movimiento = (Movimiento *)cima(pilaTemporal);
-            printf("Cajero: %s, Monto: %.2lf\n", movimiento->cajero, movimiento->monto);
-            apilar(pilaTransacciones, movimiento); // Devolvemos los elementos a la pila original
-            desapilar(pilaTemporal);
-        }
-
-        destruirPila(pilaTemporal); // Liberamos la memoria de la pila temporal
-    }
-}
+void mostrarInformes(PtrPila pila) {
 
     printf("Informe de operaciones:\n");
 

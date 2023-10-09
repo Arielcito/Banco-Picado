@@ -40,11 +40,11 @@ void menuABMOperacionCuenta();
 void menuABMOperacionImpuestos();
 void menuABMTurno();
 void menuABMCheque();
-
+void menuMovimientosDeCuenta();
 int sucursalActual = -1;
 
 CuentaPtr buscarCuentaPorNumero(CuentaPtr* listaCuentas, int numeroCuenta);
-CuentaPtr buscarCuentaPorDNI(CuentaPtr listaCuentas, int dni);
+CuentaPtr buscarCuentaPorDNI(CuentaPtr* listaCuentas, int *dni );
 
 void mostrarMenuPrincipal()
 {
@@ -61,7 +61,29 @@ void mostrarMenuPrincipal()
     CuentaPtr listaCuentas = crearLista(); // Inicializa la lista de clientes
     int *numCuentas = 0;
 
+    CajeroPtr listaCajeros = crearLista(); // Inicializa la lista de clientes
+    int *numCajeros = 0;
+
     TurnoPtr colaTurnos = crearCola();
+    SucursalPtr sucursal1 = crearSucursal(1,"Plaza de mayo");
+    SucursalPtr sucursal2 = crearSucursal(2,"Lanus");
+    SucursalPtr sucursal3 = crearSucursal(3,"Monte Grande");
+
+    agregarDatoLista(listaSucursales,sucursal1);
+    agregarDatoLista(listaSucursales,sucursal2);
+    agregarDatoLista(listaSucursales,sucursal3);
+
+    ClientePtr clienteMock = crearCliente(1, "Serato", "Ariel","jorge miles");
+    altaCuenta(&listaCuentas, &numCuentas, clienteMock);
+    ClientePtr clienteMock2 = crearCliente(2, "Serato", "Ariel","jorge miles");
+    altaCuenta(&listaCuentas, &numCuentas, clienteMock2);
+    ClientePtr clienteMock3 = crearCliente(3, "Serato", "Ariel","jorge miles");
+    altaCuenta(&listaCuentas, &numCuentas, clienteMock3);
+
+    CuentaPtr cuenta = getCabecera(&listaCuentas);
+
+    solicitarTurno(colaTurnos,"C",cuenta);
+    solicitarTurno(colaTurnos,"I",cuenta);
 
     do
     {
@@ -79,16 +101,16 @@ void mostrarMenuPrincipal()
             {
                 submenuCajero();
                 scanf("%d", &opcion);
-                mostrarMenuCajero(opcion,colaTurnos);
+                mostrarMenuCajero(opcion,colaTurnos,pilaTransacciones);
             }
             while (opcion != 0);
             opcion = ' ';
             break;
         case 3:
-            operatoriaCliente(listaCuentas);
+            operatoriaCliente(listaCuentas,&numClientes,colaTurnos);
             break;
         case 4:
-            generarInforme();
+            generarInforme(pilaTransacciones);
             break;
         case 5:
             // Opción para ABM Caja
@@ -119,21 +141,36 @@ void mostrarMenuPrincipal()
 }
 
 
-void mostrarMenuCajero(int opcion, TurnoPtr colaTurnos)
+void mostrarMenuCajero(int opcion, TurnoPtr colaTurnos, OperacionCuentaPtr pilaTransacciones)
 {
+    CuentaPtr cuentaActual = NULL;
+    CajeroPtr cajero = crearCajero("serato", "Ariel",  123,  1);
+
     switch(opcion)
     {
     case 1:
         //Llamar turno
-        llamarProximoTurno(colaTurnos);
+        cuentaActual = llamarProximoTurno(colaTurnos);
+
         break;
     case 2:
         //Impuestos
+
+        if(&cuentaActual == NULL)
+        {
+            printf("Primero tiene que llamar un turno\n");
+            break;
+        }
         printf("Impuestos\n");
         break;
     case 3:
-        //Movimientos de cuenta
-        printf("Movimientos de cuenta\n");
+
+        if(&cuentaActual == NULL)
+        {
+            printf("Primero tiene que llamar un turno\n");
+            break;
+        }
+        menuMovimientosDeCuenta(&cuentaActual,cajero, pilaTransacciones);
         break;
     case 4:
         //Informe del cajero
@@ -163,7 +200,6 @@ void menuPrincipal()
     printf("8. ABM Cajas\n");
     printf("0. Salir\n");
 }
-
 void submenuCajero()
 {
     printf("-------------------------\n");
@@ -175,7 +211,6 @@ void submenuCajero()
     printf("4. Informe del Cajero\n");
     printf("0. Volver al menu principal\n");
 }
-
 void menuABMCuenta(ClientePtr* listaClientes, CuentaPtr* listaCuentas, int *numClientes, int *numCuentas)
 {
     int opcion;
@@ -241,6 +276,11 @@ void menuABMCuenta(ClientePtr* listaClientes, CuentaPtr* listaCuentas, int *numC
             break;
         }
         case 4:
+            if(listaVacia(listaCuentas))
+            {
+                printf("La lista esta vacia!\n");
+                break;
+            }
             mostrarCuentas(&listaCuentas, &numCuentas);
             break;
         case 5:
@@ -360,196 +400,170 @@ void menuABMCaja()
     }
     while (opcion != 0);
 }
-
 void seleccionarSucursal(SucursalPtr listaSucursales)
 {
-    mostrarSucursales(&listaSucursales);
-    printf("Ingrese el número de sucursal: ");
-    scanf("%d", &sucursalActual);
-    printf("Ha seleccionado la sucursal %d.\n", sucursalActual);
-}
+    int opcion = 0;
+    for(int i = 0; i <3;i++){
+        SucursalPtr sucursal = getDatoLista(listaSucursales,i);
+        printf("%d. %s \n",i+1,getDomicilio(sucursal));
+    }
 
+    printf("Ingrese el número de sucursal: \n");
+    scanf("%d", &opcion);
+
+    SucursalPtr sucursal = getDatoLista(listaSucursales,opcion+1);
+    printf("Ha seleccionado la sucursal %d. %s\n", opcion,getDomicilio(sucursal));
+}
 void operacionCajero()
 {
     printf("Operacion cajero'\n");
 }
-
-/*static void mostrarMenuOperacionCliente()
-{
-    printf("\n** Menú de Operación Cliente **\n");
-    printf("1. Consultar saldo\n");
-    printf("2. Realizar retiro\n");
-    printf("3. Realizar depósito\n");
-    printf("4. Consultar movimientos\n");
-    printf("5. Volver al menú principal\n");
-}
-*/
-
 static void mostrarMenuOperacionCliente()
 {
     printf("\n** Menú de Operación Cliente **\n");
     printf("1. Solicitar turno\n");
     printf("2. Volver al menú principal\n");
 }
-/*void operacionCliente(OperacionCuentaPtr pilaTransacciones, CuentaPtr listaCuentas)
+void operatoriaCliente(CuentaPtr listaCuentas, int numClientes,TurnoPtr colaTurnos)
 {
-
     int opcion;
+    int opcionOperacion;
+    CuentaPtr cuenta;
 
-    do {
-        CuentaPtr cuenta;
-        CajeroPtr cajero;
-        int *nroCuenta = 0;
+    int nroDni = 0;
 
-        printf("Ingrese su nro de cuenta: ");
-        scanf("%d", &nroCuenta);
+    printf("\nIngrese su numero de DNI: ");
+    scanf("%d", &nroDni);
 
-        if(nroCuenta < 0 || nroCuenta > 100){
-            printf("Numero cuenta invalido! ");
-        }
+    if(nroDni < 0)
+    {
+        printf("Numero cuenta invalido! ");
+    }
 
-        cuenta = buscarCuentaPorNumero(&listaCuentas,&nroCuenta);
+    if(listaVacia(listaCuentas))
+    {
+        printf("No hay cuentas registradas con ese dni! ");
+    }
 
-        printf("Apellido: %s", getApellidoCliente(getTitular(cuenta)));
+    cuenta = buscarCuentaPorDNI(&listaCuentas,nroDni);
 
+    char tipoOperacion;
+
+    printf("1. Impuestos\n");
+    printf("2. Movimientos\n");
+    printf("Ingrese la operacion que desea realizar: \n");
+    scanf("%d", &opcionOperacion);
+    switch (opcionOperacion)
+    {
+    case 1:
+    {
+        tipoOperacion = "I";
+        break;
+    }
+    case 2:
+    {
+        tipoOperacion = "C";
+        break;
+    }
+    default:
+    {
+        printf("Opción no válida. Inténtelo de nuevo.\n");
+        break;
+    }
+    }
+    do
+    {
         mostrarMenuOperacionCliente();
 
         printf("Ingrese su opción: ");
         scanf("%d", &opcion);
 
-        switch (opcion) {
-            case 1: {
-                // Opción para consultar saldo
-                // consultarSaldo(cuenta);
-                printf("Numero cuenta invalido! ");
-                break;
-            }
-            case 2: {
-                // Opción para realizar un retiro
-                retirarDinero(cuenta, cajero, pilaTransacciones);
-                break;
-            }
-            case 3: {
-                // Opción para ingresar dinero
-                ingresarDinero(cuenta, cajero, pilaTransacciones);
-                break;
-            }
-            case 4: {
-                // Opción para consultar movimientos
-                //consultarMovimientos(pilaTransacciones);
-                 printf("Numero cuenta invalido! ");
-                break;
-            }
-            case 5: {
-                // Opción para volver al menú principal
-                printf("Volviendo al menú principal...\n");
-                break;
-            }
-            default: {
-                printf("Opción no válida. Inténtelo de nuevo.\n");
-                break;
-            }
-        }
-    } while (opcion != 5);
 
-}
-*/
 
-void operatoriaCliente(CuentaPtr* listaCuentas){
-    int opcion;
-
-     do {
-        CuentaPtr cuenta;
-
-        int nroDni = 0;
-
-        printf("Ingrese su numero de DNI: ");
-        scanf("%d", &nroDni);
-        cuenta = getDatoLista(listaCuentas,1);
-        printf("%d", getNumeroCorrelativo(cuenta));
-
-        if(nroDni < 0){
-            printf("Numero cuenta invalido! ");
-             break;
-        }
-
-        if(listaVacia(&listaCuentas)){
-            printf("No hay cuentas registradas con ese dni! ");
+        switch (opcion)
+        {
+        case 1:
+        {
+            solicitarTurno(colaTurnos, &tipoOperacion,cuenta);
+            printf("Espere y será llamado a la brevedad\n");
             break;
         }
+        case 2:
+        {
+            // Opción para volver al menú principal
+            printf("Volviendo al menú principal...\n");
+            break;
+        }
+        default:
+        {
+            printf("Opción no válida. Inténtelo de nuevo.\n");
+            break;
+        }
+        }
+    }
+    while (opcion != 2);
+}
+CuentaPtr buscarCuentaPorDNI(CuentaPtr* listaCuentas, int *dni)
+{
+    PtrLista listaAux=crearLista();
+    agregarLista(listaAux,listaCuentas);
 
-        cuenta = buscarCuentaPorDNI(&listaCuentas,nroDni);
+    while(!listaVacia(listaAux))
+    {
+        ClientePtr actualClient = getCabecera(listaAux);
+        mostrarCuenta(actualClient);
+        if (getDniCliente(getTitular(actualClient)) == dni)
+        {
+            printf("Encontrado!\n");
+            return actualClient;
+        }
+        PtrLista listaADestruir=listaAux;
+        listaAux=getResto(listaAux);
+        destruirLista(listaADestruir,false);
+    }
+    destruirLista(listaAux,false);
+    printf("\n");
 
-        printf("Apellido: %s", getApellidoCliente(getTitular(cuenta)));
+    printf("No se encontro el numero.\n");
+    return NULL;
+}
+void menuMovimientosDeCuenta(CuentaPtr cuenta, const char* cajero, PtrPila pilaTransacciones)
+{
+    int opcion;
 
-        mostrarMenuOperacionCliente();
-
+    do
+    {
+        printf("\n** Movimientos de Cuenta **\n");
+        printf("1. Ingresar dinero\n");
+        printf("2. Retirar dinero\n");
+        printf("3. Mostrar Saldo\n");
+        printf("4. Salir\n");
         printf("Ingrese su opción: ");
         scanf("%d", &opcion);
 
-        switch (opcion) {
-            case 1: {
-                solicitarTurno();
-                 printf("Espere y será llamado a la brevedad");
-                break;
-            }
-            case 2: {
-                // Opción para volver al menú principal
-                printf("Volviendo al menú principal...\n");
-                break;
-            }
-            default: {
-                printf("Opción no válida. Inténtelo de nuevo.\n");
-                break;
-            }
+        switch (opcion)
+        {
+        case 1:
+            ingresarDinero(cuenta,cajero,pilaTransacciones);
+            break;
+        case 2:
+            retirarDinero(cuenta,cajero,pilaTransacciones);
+            break;
+        case 3:
+            consultarSaldo(cuenta);
+            break;
+        case 4:
+            printf("Saliendo del menú de movimientos de cuenta.\n");
+            break;
+        default:
+            printf("Opción no válida. Intente nuevamente.\n");
+            break;
         }
-    } while (opcion != 2);
-}
-/*
-CuentaPtr buscarCuentaPorNumero(CuentaPtr* listaCuentas, int numeroCuenta) {
-    PtrLista listaAux=crearLista();
-    agregarLista(listaAux,listaCuentas);
-
-    while (!listaVacia(listaAux)) {
-        CuentaPtr cuentaActual = getCabecera(listaAux);
-        if (getNumeroCuenta(cuentaActual) == numeroCuenta) {
-            printf("Encontrado.\n");
-            return cuentaActual; // Devuelve la cuenta si se encuentra
-        }
-
-        PtrLista listaADestruir=listaAux;
-        listaAux=getResto(listaAux);
-        destruirLista(listaADestruir,false);
     }
-
-    destruirLista(listaAux,false);
-    return NULL; // Devuelve NULL si no se encuentra la cuenta
+    while (opcion != 4);
 }
-*/
-CuentaPtr buscarCuentaPorDNI(CuentaPtr listaCuentas, int dni) {
-    PtrLista listaAux=crearLista();
-    agregarLista(listaAux,listaCuentas);
-
-    while (!listaVacia(listaAux)) {
-        CuentaPtr cuentaActual = getCabecera(listaAux);
-         printf("%d",getDniCliente(getTitular(cuentaActual)));
-        if (getDniCliente(getTitular(cuentaActual)) == dni) {
-            printf("Encontrado.\n");
-            return cuentaActual; // Devuelve la cuenta si se encuentra
-        }
-
-        PtrLista listaADestruir=listaAux;
-        listaAux=getResto(listaAux);
-        destruirLista(listaADestruir,false);
-    }
-
-    printf("No se pudo encontrar un cuenta con ese DNI.\n");
-    destruirLista(listaAux,false);
-    return NULL; // Devuelve NULL si no se encuentra la cuenta
-}
-
 // Function for generating reports
-void generarInforme()
+void generarInforme(OperacionCuentaPtr operacion)
 {
     printf("You selected 'Informes'\n");
     // Add your code for generating reports here
@@ -569,8 +583,6 @@ void menuABMCajero()
 {
     printf("You selected ABMCajero\n");
 }
-
-
 
 void menuABMOperacionCuenta()
 {

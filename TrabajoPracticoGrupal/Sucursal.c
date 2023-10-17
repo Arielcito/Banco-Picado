@@ -1,4 +1,5 @@
 #include "sucursal.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -52,3 +53,29 @@ void setCaja(SucursalPtr sucursal, int numeroCaja, Caja *caja)
     sucursal->cajas[numeroCaja] = *caja;
 }
 
+void cargarSucursalesDesdeArchivo(const char *nombreArchivo, SucursalPtr listaSucursales)
+{
+    FILE *archivo = fopen(nombreArchivo, "r");
+    if (archivo == NULL)
+    {
+        perror("Error al abrir el archivo");
+        exit(1);
+    }
+
+    char linea[100];
+    Sucursal *sucursal;
+
+    while (fgets(linea, sizeof(linea), archivo) != NULL)
+    {
+        int numeroSucursal;
+        char domicilio[100];
+        if (sscanf(linea, "%d %99[^\n]", &numeroSucursal, domicilio) == 2)
+        {
+            sucursal = crearSucursal(numeroSucursal, domicilio);
+            // Agregar la sucursal a la lista
+            agregarDatoLista(listaSucursales, sucursal);
+        }
+    }
+
+    fclose(archivo);
+}

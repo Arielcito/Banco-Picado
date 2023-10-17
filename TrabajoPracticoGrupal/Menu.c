@@ -50,7 +50,7 @@ void mostrarMenuPrincipal()
 {
     int opcion = 0;
 
-    SucursalPtr listaSucursales = crearLista(); // Inicializa la lista de clientes
+    SucursalPtr listaSucursales = crearLista(); // Inicializa la lista de sucursales
     int numSucursales = 0;
 
     OperacionCuentaPtr pilaTransacciones = crearPila();
@@ -65,13 +65,8 @@ void mostrarMenuPrincipal()
     int *numCajeros = 0;
 
     TurnoPtr colaTurnos = crearCola();
-    SucursalPtr sucursal1 = crearSucursal(1,"Plaza de mayo");
-    SucursalPtr sucursal2 = crearSucursal(2,"Lanus");
-    SucursalPtr sucursal3 = crearSucursal(3,"Monte Grande");
 
-    agregarDatoLista(listaSucursales,sucursal1);
-    agregarDatoLista(listaSucursales,sucursal2);
-    agregarDatoLista(listaSucursales,sucursal3);
+    cargarSucursalesDesdeArchivo("sucursales.txt",listaSucursales);
 
     ClientePtr clienteMock = crearCliente(1, "Serato", "Ariel","jorge miles");
     altaCuenta(&listaCuentas, &numCuentas, clienteMock);

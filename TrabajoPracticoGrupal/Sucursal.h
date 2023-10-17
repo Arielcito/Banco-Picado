@@ -23,5 +23,6 @@ Caja getCaja(SucursalPtr sucursal, int numeroCaja);
 void setNumeroSucursal(SucursalPtr sucursal, int numeroSucursal);
 void setDomicilio(SucursalPtr sucursal, char *domicilio);
 void setCaja(SucursalPtr sucursal, int numeroCaja, Caja *caja);
+void cargarSucursalesDesdeArchivo(const char *nombreArchivo, SucursalPtr listaSucursales);
 
 #endif // BANCO_H

@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ABMCajeros.h"
+#include "lista.h"
 
 #define MAX_CAJEROS 100
 
 // Implementaci�n de las funciones de ABM de cajeros
-void altaCajero(CajeroPtr cajeros[], int *numCajeros)
+void altaCajero(CajeroPtr listaCajeros, int *numCajeros)
 {
     if (*numCajeros < MAX_CAJEROS)
     {
@@ -27,7 +28,8 @@ void altaCajero(CajeroPtr cajeros[], int *numCajeros)
         scanf("%d", &numeroLegajo);
 
         // Crear el cajero y agregarlo al arreglo
-        cajeros[*numCajeros] = crearCajero(apellido, nombre, cuil, numeroLegajo);
+        CajeroPtr nuevoCajero = crearCajero(apellido, nombre, cuil, numeroLegajo);
+        agregarDatoLista(listaCajeros,nuevoCajero);
         (*numCajeros)++;
         printf("Cajero agregado con �xito.\n");
     }
@@ -37,27 +39,23 @@ void altaCajero(CajeroPtr cajeros[], int *numCajeros)
     }
 }
 
-void bajaCajero(CajeroPtr cajeros[], int *numCajeros, long cuil)
+void bajaCajero(CajeroPtr listaCajeros, int *numCajeros, long cuil)
 {
     int indiceEncontrado = -1;
 
     for (int i = 0; i < *numCajeros; i++)
     {
-        if (getCuilCajero(cajeros[i]) == cuil)
+        CajeroPtr actualCajero = getDatoLista(listaCajeros,i);
+        if (getCuilCajero(actualCajero) == cuil)
         {
-            // Liberar la memoria del cajero y eliminarlo del arreglo
-            cajeros[i] = destruirCajero(cajeros[i]);
-
-            // Mover los cajeros posteriores hacia atr�s
-            for (int j = i; j < (*numCajeros - 1); j++)
-            {
-                cajeros[j] = cajeros[j + 1];
-            }
+            listaCajeros = removerDeLista(listaCajeros,i);
+            // Liberar la memoria del cliente y eliminarlo del arreglo
+            listaCajeros = destruirCliente(actualCajero);
 
             indiceEncontrado = i;
             (*numCajeros)--;
-            printf("Cajero eliminado con �xito.\n");
-            break; // Salir del bucle una vez que se ha encontrado y eliminado el cajero
+            printf("Cliente eliminado con �xito.\n");
+            break; // Salir del bucle una vez que se ha encontrado y eliminado el cliente
         }
     }
 
@@ -67,13 +65,13 @@ void bajaCajero(CajeroPtr cajeros[], int *numCajeros, long cuil)
     }
 }
 
-void modificarCajero(CajeroPtr cajeros[], int numCajeros, long cuil)
+void modificarCajero(CajeroPtr listaCajeros, int numCajeros, long cuil)
 {
     int indiceEncontrado = -1;
 
     for (int i = 0; i < numCajeros; i++)
     {
-        if (getCuilCajero(cajeros[i]) == cuil)
+        if (getCuilCajero(listaCajeros) == cuil)
         {
             // Solicitar los nuevos datos al usuario
             char nuevoApellido[50];
@@ -90,9 +88,9 @@ void modificarCajero(CajeroPtr cajeros[], int numCajeros, long cuil)
             scanf("%d", &nuevoNumeroLegajo);
 
             // Actualizar los datos del cajero
-            setApellidoCajero(cajeros[i], nuevoApellido);
-            setNombreCajero(cajeros[i], nuevoNombre);
-            setNumeroLegajoCajero(cajeros[i], nuevoNumeroLegajo);
+            setApellidoCajero(listaCajeros, nuevoApellido);
+            setNombreCajero(listaCajeros, nuevoNombre);
+            setNumeroLegajoCajero(listaCajeros, nuevoNumeroLegajo);
             printf("Cajero modificado con �xito.\n");
 
             indiceEncontrado = i;
@@ -106,17 +104,27 @@ void modificarCajero(CajeroPtr cajeros[], int numCajeros, long cuil)
     }
 }
 
-void mostrarCajeros(CajeroPtr cajeros[], int numCajeros)
+void mostrarCajeros(CajeroPtr listaCajeros, int numCajeros)
 {
+    CajeroPtr listaAux=crearLista();
+    agregarLista(listaAux,listaCajeros);
+
     printf("Lista de Cajeros:\n");
-    for (int i = 0; i < numCajeros; i++)
+    while(!listaVacia(listaAux))
     {
-        printf("CUIL: %ld, Apellido: %s, Nombre: %s, N�mero de Legajo: %d\n",
-               getCuilCajero(cajeros[i]),
-               getApellidoCajero(cajeros[i]),
-               getNombreCajero(cajeros[i]),
-               getNumeroLegajoCajero(cajeros[i]));
+        CajeroPtr actualCajero = getCabecera(listaAux);
+        printf("Apellido: %s, Nombre: %s, Cuil: %d, Numero de legajo: %d\n",
+               getApellidoCajero(actualCajero),
+               getNombreCajero(actualCajero),
+               getCuilCajero(actualCajero),
+               getNumeroLegajoCajero(actualCajero));
+
+        CajeroPtr listaADestruir=listaAux;
+        listaAux=getResto(listaAux);
+        destruirLista(listaADestruir,false);
     }
+    destruirLista(listaAux,false);
+        printf("\n");
 }
 
 void mostrarMenuCajeros()

@@ -2,10 +2,11 @@
 #include <stdio.h>
 #include "Caja.h"
 #include "lista.h"
+#include "Cajero.h"
 
 #define MAX_CAJAS 100
 
-// Implementación de las funciones de ABM de cajas
+// Implementaciï¿½n de las funciones de ABM de cajas
 void altaCaja(Caja** listaCajas,int* numCajas, int numeroCaja, double montoInicial)
 {
     if (*numCajas < MAX_CAJAS)
@@ -16,35 +17,31 @@ void altaCaja(Caja** listaCajas,int* numCajas, int numeroCaja, double montoInici
         agregarDatoLista(listaCajas,nuevaCaja);
         (*numCajas)++;
 
-        printf("Caja agregada con éxito.\n");
+        printf("Caja agregada con ï¿½xito.\n");
     }
     else
     {
-        printf("No se pueden agregar más cajas. La capacidad está llena.\n");
+        printf("No se pueden agregar mï¿½s cajas. La capacidad estï¿½ llena.\n");
     }
 }
 
-void bajaCaja(CajaPtr cajas[], int *numCajas, int numeroCaja)
+void bajaCaja(CajaPtr* listaCajas, int *numCajas, int numeroCaja)
 {
     int indiceEncontrado = -1;
 
-    for (int i = 0; i < *numCajas; i++)
+     for (int i = 0; i < *numCajas; i++)
     {
-        if (getNumeroCaja(cajas[i]) == numeroCaja)
+        CajaPtr actualCaja = getDatoLista(listaCajas,i);
+        if (getNumeroCaja(actualCaja) == numeroCaja)
         {
-            // Liberar la memoria de la caja y eliminarla del arreglo
-            cajas[i] = destruirCaja(cajas[i]);
-
-            // Mover las cajas posteriores hacia atrás
-            for (int j = i; j < (*numCajas - 1); j++)
-            {
-                cajas[j] = cajas[j + 1];
-            }
+            listaCajas = removerDeLista(listaCajas,i);
+            // Liberar la memoria del cliente y eliminarlo del arreglo
+            listaCajas = destruirCliente(actualCaja);
 
             indiceEncontrado = i;
             (*numCajas)--;
-            printf("Caja eliminada con éxito.\n");
-            break; // Salir del bucle una vez que se ha encontrado y eliminado la caja
+            printf("Cliente eliminado con ï¿½xito.\n");
+            break; // Salir del bucle una vez que se ha encontrado y eliminado el cliente
         }
     }
 
@@ -54,17 +51,18 @@ void bajaCaja(CajaPtr cajas[], int *numCajas, int numeroCaja)
     }
 }
 
-void modificarCaja(CajaPtr cajas[], int numCajas, int numeroCaja, double montoInicial)
+void modificarCaja(CajaPtr listaCajas, int numCajas, int numeroCaja, double montoInicial)
 {
     int indiceEncontrado = -1;
 
     for (int i = 0; i < numCajas; i++)
     {
-        if (getNumeroCaja(cajas[i]) == numeroCaja)
+        CajaPtr actualCaja = getDatoLista(listaCajas,i);
+        if (getNumeroCaja(actualCaja) == numeroCaja)
         {
             // Actualizar los datos de la caja
-            setMontoInicial(cajas[i], montoInicial);
-            printf("Caja modificada con éxito.\n");
+            setMontoInicial(actualCaja, montoInicial);
+            printf("Caja modificada con ï¿½xito.\n");
 
             indiceEncontrado = i;
             break; // Salir del bucle una vez que se ha encontrado y modificado la caja
@@ -77,15 +75,26 @@ void modificarCaja(CajaPtr cajas[], int numCajas, int numeroCaja, double montoIn
     }
 }
 
-void mostrarCajas(CajaPtr cajas[], int numCajas)
+void mostrarCajas(CajaPtr listaCajas, int numCajas)
 {
+    PtrLista listaAux=crearLista();
+    agregarLista(listaAux,listaCajas);
+
     printf("-------------------------\n");
     printf("Lista de Cajas:\n");
     printf("-------------------------\n\n");
-    for (int i = 0; i < numCajas; i++)
+    while(!listaVacia(listaAux))
     {
-        printf("Número de caja: %d, Monto inicial: %.2f\n",
-               getNumeroCaja(cajas[i]),
-               getMontoInicial(cajas[i]));
+        CajaPtr actualCaja = getCabecera(listaAux);
+        printf("Numero Caja: %d, Monte inicial: %1d\n",
+               getNumeroCaja(actualCaja),
+               getMontoInicial(actualCaja)
+               );
+
+        PtrLista listaADestruir=listaAux;
+        listaAux=getResto(listaAux);
+        destruirLista(listaADestruir,false);
     }
+    destruirLista(listaAux,false);
+        printf("\n");
 }

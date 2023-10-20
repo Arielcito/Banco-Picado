@@ -2,62 +2,25 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="OperacionImpuestos.c" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ABMSucursales.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1767" topLine="0" />
+			<Cursor1 position="3510" topLine="84" />
 		</Cursor>
 	</File>
-	<File name="Cheque.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ABMCajas.c" open="0" top="0" tabpos="0" split="2" active="1" splitpos="851" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="0" />
+			<Cursor1 position="2626" topLine="71" />
+			<Cursor2 position="403" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="OperacionImpuestos.h" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Nodo.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="202" topLine="0" />
+			<Cursor1 position="76" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Banco.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Cuenta.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="79" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Cliente.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="385" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="OperacionTurno.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="864" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Lista.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2067" topLine="45" />
-		</Cursor>
-	</File>
-	<File name="ABMClientes.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="924" topLine="18" />
-		</Cursor>
-		<Folding>
-			<Collapse line="122" />
-		</Folding>
-	</File>
-	<File name="Cheque.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1039" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Lista.c" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1048" topLine="27" />
-		</Cursor>
-	</File>
-	<File name="ABMCajeros.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3674" topLine="92" />
+			<Cursor1 position="449" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="main.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -65,34 +28,29 @@
 			<Cursor1 position="563" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Banco.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Nodo.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="294" topLine="0" />
+			<Cursor1 position="202" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Util.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Turno.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="555" topLine="10" />
+			<Cursor1 position="420" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Cliente.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Cheque.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="636" topLine="0" />
+			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="OperacionCuenta.h" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="sucursales.txt" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="175" topLine="14" />
+			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Cuenta.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Cuenta.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="301" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="OperacionCuenta.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="525" topLine="13" />
 		</Cursor>
 	</File>
 	<File name="Cajero.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -100,62 +58,38 @@
 			<Cursor1 position="367" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Sucursal.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Caja.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="83" topLine="0" />
+			<Cursor1 position="156" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="sucursales.txt" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ABMClientes.c" open="0" top="0" tabpos="4" split="2" active="1" splitpos="851" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="0" />
+			<Cursor1 position="887" topLine="10" />
+			<Cursor2 position="0" topLine="0" />
 		</Cursor>
+		<Folding>
+			<Collapse line="126" />
+		</Folding>
 	</File>
-	<File name="Pila.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="559" topLine="3" />
-		</Cursor>
-	</File>
-	<File name="ABMSucursales.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="498" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="ABMSucursales.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3510" topLine="84" />
-		</Cursor>
-	</File>
-	<File name="Nodo.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="OperacionImpuestos.h" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="202" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Cola.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1354" topLine="39" />
-		</Cursor>
-	</File>
-	<File name="Menu.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1831" topLine="45" />
-		</Cursor>
-		<Folding>
-			<Collapse line="142" />
-			<Collapse line="186" />
-			<Collapse line="201" />
-			<Collapse line="212" />
-			<Collapse line="294" />
-			<Collapse line="340" />
-			<Collapse line="401" />
-			<Collapse line="416" />
-			<Collapse line="420" />
-			<Collapse line="473" />
-			<Collapse line="505" />
-		</Folding>
-	</File>
 	<File name="ABMCuentas.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="498" topLine="0" />
+			<Cursor1 position="433" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="OperacionCuenta.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="525" topLine="13" />
+		</Cursor>
+	</File>
+	<File name="ABMCajeros.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="81" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="OperacionCaja.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
@@ -167,19 +101,19 @@
 			<Collapse line="40" />
 		</Folding>
 	</File>
-	<File name="Caja.c" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Cliente.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="93" topLine="0" />
+			<Cursor1 position="945" topLine="3" />
 		</Cursor>
 	</File>
-	<File name="util.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Sucursal.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="526" topLine="0" />
+			<Cursor1 position="83" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Cajero.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Banco.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="526" topLine="0" />
+			<Cursor1 position="215" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Pila.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -187,49 +121,127 @@
 			<Cursor1 position="1269" topLine="20" />
 		</Cursor>
 	</File>
+	<File name="ABMSucursales.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="498" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="OperacionImpuestos.c" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1767" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="ABMClientes.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="403" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="OperacionCuenta.h" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="175" topLine="14" />
+		</Cursor>
+	</File>
+	<File name="util.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="526" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Menu.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="18446" topLine="283" />
+		</Cursor>
+		<Folding>
+			<Collapse line="144" />
+			<Collapse line="188" />
+			<Collapse line="203" />
+			<Collapse line="214" />
+			<Collapse line="296" />
+			<Collapse line="403" />
+			<Collapse line="418" />
+			<Collapse line="422" />
+			<Collapse line="428" />
+			<Collapse line="507" />
+			<Collapse line="532" />
+		</Folding>
+	</File>
+	<File name="Cola.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="789" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="Util.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="555" topLine="10" />
+		</Cursor>
+	</File>
+	<File name="Lista.c" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1048" topLine="27" />
+		</Cursor>
+	</File>
+	<File name="OperacionTurno.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="562" topLine="3" />
+		</Cursor>
+	</File>
+	<File name="Cheque.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1039" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Cajero.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="526" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="ABMCuentas.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="244" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="ABMCajas.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Caja.c" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="621" topLine="0" />
+			<Cursor1 position="93" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Turno.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Cola.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="420" topLine="0" />
+			<Cursor1 position="1354" topLine="39" />
 		</Cursor>
 	</File>
-	<File name="Caja.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ABMCajeros.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="156" topLine="0" />
+			<Cursor1 position="439" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Turno.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Turno.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="582" topLine="0" />
+			<Cursor1 position="582" topLine="9" />
 		</Cursor>
 	</File>
-	<File name="Sucursal.h" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Lista.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="857" topLine="0" />
+			<Cursor1 position="2067" topLine="45" />
 		</Cursor>
 	</File>
-	<File name="Cuenta.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Cliente.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="449" topLine="0" />
+			<Cursor1 position="1760" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Nodo.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Sucursal.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="76" topLine="0" />
+			<Cursor1 position="246" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Cola.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Banco.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="789" topLine="12" />
+			<Cursor1 position="128" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Pila.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="559" topLine="3" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

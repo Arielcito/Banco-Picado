@@ -4,7 +4,7 @@
 BancoPtr crearBanco(SucursalPtr sucursales[]) {
     BancoPtr banco = (BancoPtr)obtenerMemoria(sizeof(Banco), "Error al crear un nuevo banco");
 
-    for (int i = 0; i < MAX_SUCURSALES; i++) {
+    for (int i = 0; i < 3; i++) {
         banco->sucursales[i] = sucursales[i];
     }
 

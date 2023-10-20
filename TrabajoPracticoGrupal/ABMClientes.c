@@ -16,6 +16,7 @@ void altaCliente(Cliente** listaClientes, int* numClientes)
         char nombre[50];
         char domicilio[100];
         long dni;
+        int edad;
 
         printf("Ingrese el apellido del cliente: ");
         scanf("%s", apellido);
@@ -29,7 +30,10 @@ void altaCliente(Cliente** listaClientes, int* numClientes)
         printf("Ingrese el DNI del cliente: ");
         scanf("%ld", &dni); // Corregido el formato a %ld
 
-        Cliente* nuevoCliente = crearCliente(dni, apellido, nombre, domicilio);
+        printf("Ingrese el Edad del cliente: ");
+        scanf("%d", &edad); // Corregido el formato a %ld
+
+        Cliente* nuevoCliente = crearCliente(dni, apellido, nombre, domicilio,edad);
 
         agregarDatoLista(listaClientes,nuevoCliente);
         (*numClientes)++;

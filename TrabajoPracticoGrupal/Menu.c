@@ -65,20 +65,22 @@ void mostrarMenuPrincipal()
     int *numCajeros = 0;
 
     TurnoPtr colaTurnos = crearCola();
+    TurnoPtr colaTurnosPrioridad = crearCola();
 
     cargarSucursalesDesdeArchivo("sucursales.txt",listaSucursales);
 
-    ClientePtr clienteMock = crearCliente(1, "Serato", "Ariel","jorge miles");
+    ClientePtr clienteMock = crearCliente(1, "Serato", "Ariel","jorge miles",22);
     altaCuenta(&listaCuentas, &numCuentas, clienteMock);
-    ClientePtr clienteMock2 = crearCliente(2, "Serato", "Ariel","jorge miles");
+    ClientePtr clienteMock2 = crearCliente(2, "Serato", "Ariel","jorge miles",70);
     altaCuenta(&listaCuentas, &numCuentas, clienteMock2);
-    ClientePtr clienteMock3 = crearCliente(3, "Serato", "Ariel","jorge miles");
+    ClientePtr clienteMock3 = crearCliente(3, "Serato", "Ariel","jorge miles",71);
     altaCuenta(&listaCuentas, &numCuentas, clienteMock3);
 
     CuentaPtr cuenta = getCabecera(&listaCuentas);
+    CuentaPtr cuenta2 = getDatoLista(&listaCuentas,2);
 
-    solicitarTurno(colaTurnos,"C",cuenta);
-    solicitarTurno(colaTurnos,"I",cuenta);
+    solicitarTurno(colaTurnos,colaTurnosPrioridad,"C",cuenta);
+    solicitarTurno(colaTurnos,colaTurnosPrioridad,"I",cuenta2);
 
     do
     {
@@ -99,13 +101,13 @@ void mostrarMenuPrincipal()
             {
                 submenuCajero();
                 scanf("%d", &opcion);
-                mostrarMenuCajero(opcion,colaTurnos,pilaTransacciones);
+                mostrarMenuCajero(opcion,colaTurnos,colaTurnosPrioridad,pilaTransacciones);
             }
             while (opcion != 0);
             opcion = ' ';
             break;
         case 3:
-            operatoriaCliente(listaCuentas,&numClientes,colaTurnos);
+            operatoriaCliente(listaCuentas,colaTurnosPrioridad,&numClientes,colaTurnos);
             break;
         case 4:
             generarInforme(pilaTransacciones);
@@ -139,7 +141,7 @@ void mostrarMenuPrincipal()
 }
 
 
-void mostrarMenuCajero(int opcion, TurnoPtr colaTurnos, OperacionCuentaPtr pilaTransacciones)
+void mostrarMenuCajero(int opcion, TurnoPtr colaTurnos,TurnoPtr colaTurnosPrioridad ,OperacionCuentaPtr pilaTransacciones)
 {
     CuentaPtr cuentaActual = NULL;
     CajeroPtr cajero = crearCajero("serato", "Ariel",  123,  1);
@@ -148,7 +150,7 @@ void mostrarMenuCajero(int opcion, TurnoPtr colaTurnos, OperacionCuentaPtr pilaT
     {
     case 1:
         //Llamar turno
-        cuentaActual = llamarProximoTurno(colaTurnos);
+        cuentaActual = llamarProximoTurno(colaTurnos,colaTurnosPrioridad);
 
         break;
     case 2:
@@ -423,7 +425,7 @@ static void mostrarMenuOperacionCliente()
     printf("1. Solicitar turno\n");
     printf("2. Volver al menú principal\n");
 }
-void operatoriaCliente(CuentaPtr listaCuentas, int numClientes,TurnoPtr colaTurnos)
+void operatoriaCliente(CuentaPtr listaCuentas,TurnoPtr colaTurnosPriodidad ,int numClientes,TurnoPtr colaTurnos)
 {
     int opcion;
     int opcionOperacion;
@@ -483,7 +485,7 @@ void operatoriaCliente(CuentaPtr listaCuentas, int numClientes,TurnoPtr colaTurn
         {
         case 1:
         {
-            solicitarTurno(colaTurnos, &tipoOperacion,cuenta);
+            solicitarTurno(colaTurnos, colaTurnosPriodidad,&tipoOperacion,cuenta);
             printf("Espere y será llamado a la brevedad\n");
             break;
         }
@@ -520,10 +522,11 @@ CuentaPtr buscarCuentaPorDNI(CuentaPtr* listaCuentas, int *dni)
         listaAux=getResto(listaAux);
         destruirLista(listaADestruir,false);
     }
+    printf("No se encontro el numero.\n");
     destruirLista(listaAux,false);
     printf("\n");
 
-    printf("No se encontro el numero.\n");
+
     return NULL;
 }
 void menuMovimientosDeCuenta(CuentaPtr cuenta, const char* cajero, PtrPila pilaTransacciones)
@@ -571,22 +574,22 @@ void generarInforme(OperacionCuentaPtr pila) {
     } EstadisticaSucursal;
 
     const int MAX_SUCURSALES = 3;
-    EstadisticaSucursal estadisticas[MAX_SUCURSALES];
+    EstadisticaSucursal* listaEstadisticas = crearLista();
     int numSucursales = 0;
 
     // Inicializar las estadísticas
     for (int i = 0; i < MAX_SUCURSALES; i++) {
-        estadisticas[i].total = 0.0;
+        listaEstadisticas = 0.0;
     }
 
     // Procesar las operaciones y calcular totales por sucursal
-    while (pila->cima != NULL) {
-        OperacionCuenta operacion = desapilarOperacion(pila);
+    while (pilaVacia(pila)) {
+        OperacionCuentaPtr operacion = desapilar(pila);
 
         // Buscar si ya se ha registrado esta sucursal
         int indiceSucursal = -1;
         for (int i = 0; i < numSucursales; i++) {
-            if (strcmp(estadisticas[i].nombre, operacion.sucursal) == 0) {
+            if (strcmp(estadisticas[i]->nombre, operacion->sucursal) == 0) {
                 indiceSucursal = i;
                 break;
             }
@@ -620,7 +623,64 @@ void generarInforme(OperacionCuentaPtr pila) {
 
 void menuABMCajero()
 {
-    printf("You selected ABMCajero\n");
+    int opcion;
+    CajeroPtr listaCajas = NULL; // Inicializa la lista de clientes
+    int numCajas = 0;
+    do
+    {
+        printf("** Menú ABM Cajero **\n");
+        printf("1. Alta de Cajero\n");
+        printf("2. Baja de Cajero\n");
+        printf("3. Modificación de Cajero\n");
+        printf("4. Mostrar Cajeros\n");
+        printf("0. Volver al menú principal\n");
+        printf("Ingrese su opción: ");
+        scanf("%d", &opcion);
+
+        switch (opcion)
+        {
+        case 1:
+        {
+            int numeroCaja;
+            double montoInicial;
+            printf("Ingrese el número de caja: ");
+            scanf("%d", &numeroCaja);
+            printf("Ingrese el monto inicial: ");
+            scanf("%lf", &montoInicial);
+            altaCaja(&listaCajas, &numCajas, numeroCaja, montoInicial);
+            break;
+        }
+        case 2:
+        {
+            int numeroCaja;
+            printf("Ingrese el número de caja a dar de baja: ");
+            scanf("%d", &numeroCaja);
+            bajaCaja(&listaCajas, &numCajas, numeroCaja);
+            break;
+        }
+        case 3:
+        {
+            int numeroCaja;
+            double nuevoMonto;
+            printf("Ingrese el número de caja a modificar: ");
+            scanf("%d", &numeroCaja);
+            printf("Ingrese el nuevo monto inicial: ");
+            scanf("%lf", &nuevoMonto);
+            modificarCaja(&listaCajas, &numCajas, numeroCaja, nuevoMonto);
+            break;
+        }
+        case 4:
+            mostrarCajas(&listaCajas, &numCajas);
+            break;
+        case 0:
+            printf("Volviendo al menú principal...\n");
+            break;
+        default:
+            printf("Opción no válida. Inténtelo de nuevo.\n");
+            break;
+        }
+    }
+    while (opcion != 0);
 }
 
 void limpiarPantalla()

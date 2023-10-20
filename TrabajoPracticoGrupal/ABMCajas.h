@@ -4,11 +4,11 @@
 
 #include "caja.h"
 
-// Declaración de funciones para el ABM de cajas
-void altaCaja(CajaPtr cajas[], int *numCajas, int numeroCaja, double montoInicial);
-void bajaCaja(CajaPtr cajas[], int *numCajas, int numeroCaja);
-void modificarCaja(CajaPtr cajas[], int numCajas, int numeroCaja, double montoInicial);
-void mostrarCajas(CajaPtr cajas[], int numCajas);
+// Declaraciï¿½n de funciones para el ABM de cajas
+void altaCaja(CajaPtr listaCajas, int *numCajas, int numeroCaja, double montoInicial);
+void bajaCaja(CajaPtr listaCajas, int *numCajas, int numeroCaja);
+void modificarCaja(CajaPtr listaCajas, int *numCajas, int numeroCaja, double montoInicial);
+void mostrarCajas(CajaPtr listaCajas, int *numCajas);
 
 void mostrarMenuCajas();
 #endif // ABMCAJAS_H

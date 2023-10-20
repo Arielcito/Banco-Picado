@@ -3,11 +3,10 @@
 
 #include "sucursal.h"
 
-#define MAX_SUCURSALES 3
 
 typedef struct
 {
-    SucursalPtr sucursales[MAX_SUCURSALES];
+    SucursalPtr sucursales[3];
 } Banco;
 
 typedef Banco* BancoPtr;

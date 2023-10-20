@@ -5,10 +5,10 @@
 #include "cliente.h"
 
 // Declaración de funciones para el ABM de clientes
-void altaCliente(ClientePtr clientes[], int *numClientes);
-void bajaCliente(ClientePtr clientes[], int *numClientes, long dni);
-void modificarCliente(ClientePtr clientes[], int numClientes, long dni);
-void mostrarClientes(ClientePtr clientes[], int numClientes);
+void altaCliente(ClientePtr listaCajeros, int *numClientes);
+void bajaCliente(ClientePtr listaCajeros, int *numClientes, long dni);
+void modificarCliente(ClientePtr listaCajeros, int numClientes, long dni);
+void mostrarClientes(ClientePtr listaCajeros, int numClientes);
 
 void mostrarMenuClientes();
 #endif // ABMCLIENTES_H

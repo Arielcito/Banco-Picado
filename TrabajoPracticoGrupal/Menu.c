@@ -81,12 +81,17 @@ void mostrarMenuPrincipal()
 
     solicitarTurno(colaTurnos,colaTurnosPrioridad,"C",cuenta);
     solicitarTurno(colaTurnos,colaTurnosPrioridad,"I",cuenta2);
+    limpiarPantalla();
 
     do
     {
-        SucursalPtr sucursalSeleccionada = seleccionarSucursal(listaSucursales);
+        SucursalPtr sucursalSeleccionada = NULL;
+        do{
+             sucursalSeleccionada = seleccionarSucursal(listaSucursales);
+        }while(sucursalSeleccionada == NULL);
 
         menuPrincipal(sucursalActual);
+
         printf("Sucursal Actual: %s \n", getDomicilio(sucursalSeleccionada));
         printf("Ingrese su opción: ");
         scanf("%d", &opcion);
@@ -130,6 +135,7 @@ void mostrarMenuPrincipal()
             break;
         case 0:
             printf("Saliendo...\n");
+            limpiarPantalla();
             break;
         default:
             printf("\n");
@@ -140,6 +146,38 @@ void mostrarMenuPrincipal()
     printf("Saliendo del programa. Hasta luego!\n");
 }
 
+static void mostrarMenuOperacionCliente()
+{
+    printf("\n** Menú de Operación Cliente **\n");
+    printf("1. Solicitar turno\n");
+    printf("2. Volver al menú principal\n");
+}
+void menuPrincipal()
+{
+    printf("\n-------------------------\n");
+    printf("** Menú Principal **\n");
+    printf("-------------------------\n\n");
+    printf("1. Seleccionar sucursal\n");
+    printf("2. Operación cajero\n");
+    printf("3. Operación cliente\n");
+    printf("4. Informes\n");
+    printf("5. ABM Cuenta\n");
+    printf("6. ABM Sucursal\n");
+    printf("7. ABM Cajero\n");
+    printf("8. ABM Cajas\n");
+    printf("0. Salir\n");
+}
+void submenuCajero()
+{
+    printf("-------------------------\n");
+    printf("** Operación Cajero **\n");
+    printf("-------------------------\n\n");
+    printf("1. Llamar Turno\n");
+    printf("2. Impuestos\n");
+    printf("3. Movimientos de cuenta\n");
+    printf("4. Informe del Cajero\n");
+    printf("0. Volver al menu principal\n");
+}
 
 void mostrarMenuCajero(int opcion, TurnoPtr colaTurnos,TurnoPtr colaTurnosPrioridad ,OperacionCuentaPtr pilaTransacciones)
 {
@@ -174,10 +212,11 @@ void mostrarMenuCajero(int opcion, TurnoPtr colaTurnos,TurnoPtr colaTurnosPriori
         break;
     case 4:
         //Informe del cajero
-        printf("Informe del cajero\n");
+        mostrarInformes(pilaTransacciones);
         break;
     case 0:
         printf("Volviendo al menu principal...");
+        limpiarPantalla();
         break;
     default:
         printf("La opcion ingresada no es correcta, intentelo nuevamente\n");
@@ -185,32 +224,6 @@ void mostrarMenuCajero(int opcion, TurnoPtr colaTurnos,TurnoPtr colaTurnosPriori
     }
 }
 
-void menuPrincipal()
-{
-    printf("\n-------------------------\n");
-    printf("** Menú Principal **\n");
-    printf("-------------------------\n\n");
-    printf("1. Seleccionar sucursal\n");
-    printf("2. Operación cajero\n");
-    printf("3. Operación cliente\n");
-    printf("4. Informes\n");
-    printf("5. ABM Cuenta\n");
-    printf("6. ABM Sucursal\n");
-    printf("7. ABM Cajero\n");
-    printf("8. ABM Cajas\n");
-    printf("0. Salir\n");
-}
-void submenuCajero()
-{
-    printf("-------------------------\n");
-    printf("** Operación Cajero **\n");
-    printf("-------------------------\n\n");
-    printf("1. Llamar Turno\n");
-    printf("2. Impuestos\n");
-    printf("3. Movimientos de cuenta\n");
-    printf("4. Informe del Cajero\n");
-    printf("0. Volver al menu principal\n");
-}
 void menuABMCuenta(ClientePtr* listaClientes, CuentaPtr* listaCuentas, int *numClientes, int *numCuentas)
 {
     int opcion;
@@ -285,6 +298,7 @@ void menuABMCuenta(ClientePtr* listaClientes, CuentaPtr* listaCuentas, int *numC
             break;
         case 5:
             printf("Volviendo al menú principal...\n");
+            limpiarPantalla();
             break;
         default:
             printf("Opción no válida. Inténtelo de nuevo.\n");
@@ -331,6 +345,7 @@ void menuABMSucursal(SucursalPtr listaSucursales, int *numSucursales)
             break;
         case 5:
             printf("Volviendo al menú principal...\n");
+            limpiarPantalla();
             break;
         default:
             printf("Opción no válida. Inténtelo de nuevo.\n");
@@ -392,6 +407,7 @@ void menuABMCaja()
             break;
         case 0:
             printf("Volviendo al menú principal...\n");
+            limpiarPantalla();
             break;
         default:
             printf("Opción no válida. Inténtelo de nuevo.\n");
@@ -405,26 +421,22 @@ SucursalPtr seleccionarSucursal(SucursalPtr listaSucursales)
     int opcion = 0;
     for(int i = 0; i <3;i++){
         SucursalPtr sucursal = getDatoLista(listaSucursales,i);
-        printf("%d. %s \n",i+1,getDomicilio(sucursal));
+        printf("%d. %s \n",i,getDomicilio(sucursal));
     }
 
     printf("Ingrese el número de sucursal: \n");
     scanf("%d", &opcion);
+    if(opcion > 2){
+       printf("Opcion incorrecta!!\n");
+       return NULL;
 
-    SucursalPtr sucursal = getDatoLista(listaSucursales,opcion+1);
+    }
+    SucursalPtr sucursal = getDatoLista(listaSucursales,opcion);
     printf("Ha seleccionado la sucursal %d. %s\n", opcion,getDomicilio(sucursal));
     return sucursal;
 }
-void operacionCajero()
-{
-    printf("Operacion cajero'\n");
-}
-static void mostrarMenuOperacionCliente()
-{
-    printf("\n** Menú de Operación Cliente **\n");
-    printf("1. Solicitar turno\n");
-    printf("2. Volver al menú principal\n");
-}
+
+
 void operatoriaCliente(CuentaPtr listaCuentas,TurnoPtr colaTurnosPriodidad ,int numClientes,TurnoPtr colaTurnos)
 {
     int opcion;
@@ -493,6 +505,7 @@ void operatoriaCliente(CuentaPtr listaCuentas,TurnoPtr colaTurnosPriodidad ,int 
         {
             // Opción para volver al menú principal
             printf("Volviendo al menú principal...\n");
+            limpiarPantalla();
             break;
         }
         default:
@@ -529,7 +542,7 @@ CuentaPtr buscarCuentaPorDNI(CuentaPtr* listaCuentas, int *dni)
 
     return NULL;
 }
-void menuMovimientosDeCuenta(CuentaPtr cuenta, const char* cajero, PtrPila pilaTransacciones)
+void menuMovimientosDeCuenta(CuentaPtr cuenta, CajeroPtr cajero, PtrPila pilaTransacciones)
 {
     int opcion;
 
@@ -539,7 +552,8 @@ void menuMovimientosDeCuenta(CuentaPtr cuenta, const char* cajero, PtrPila pilaT
         printf("1. Ingresar dinero\n");
         printf("2. Retirar dinero\n");
         printf("3. Mostrar Saldo\n");
-        printf("4. Salir\n");
+        printf("4. Mostrar Informes\n");
+        printf("5. Salir\n");
         printf("Ingrese su opción: ");
         scanf("%d", &opcion);
 
@@ -553,72 +567,25 @@ void menuMovimientosDeCuenta(CuentaPtr cuenta, const char* cajero, PtrPila pilaT
             break;
         case 3:
             consultarSaldo(cuenta);
+
             break;
         case 4:
+            mostrarInformes(pilaTransacciones);
+            break;
+        case 5:
             printf("Saliendo del menú de movimientos de cuenta.\n");
+            limpiarPantalla();
             break;
         default:
             printf("Opción no válida. Intente nuevamente.\n");
             break;
         }
     }
-    while (opcion != 4);
+    while (opcion != 5);
 }
 // Función para generar el informe de operaciones por sucursal, cliente y cajero
 void generarInforme(OperacionCuentaPtr pila) {
-    /*
-     // Estructura para mantener las estadísticas por sucursal
-    typedef struct {
-        char nombre[50];   // Nombre de la sucursal
-        double total;      // Total operado por la sucursal
-    } EstadisticaSucursal;
 
-    const int MAX_SUCURSALES = 3;
-    EstadisticaSucursal* listaEstadisticas = crearLista();
-    int numSucursales = 0;
-
-    // Inicializar las estadísticas
-    for (int i = 0; i < MAX_SUCURSALES; i++) {
-        listaEstadisticas = 0.0;
-    }
-
-    // Procesar las operaciones y calcular totales por sucursal
-    while (pilaVacia(pila)) {
-        OperacionCuentaPtr operacion = desapilar(pila);
-
-        // Buscar si ya se ha registrado esta sucursal
-        int indiceSucursal = -1;
-        for (int i = 0; i < numSucursales; i++) {
-            if (strcmp(estadisticas[i]->nombre, operacion->sucursal) == 0) {
-                indiceSucursal = i;
-                break;
-            }
-        }
-
-        // Si no se ha registrado, agregarla a las estadísticas
-        if (indiceSucursal == -1) {
-            strncpy(estadisticas[numSucursales].nombre, operacion.sucursal, sizeof(estadisticas[numSucursales].nombre));
-            numSucursales++;
-            indiceSucursal = numSucursales - 1;
-        }
-
-        // Actualizar el total operado por la sucursal
-        estadisticas[indiceSucursal].total += operacion.monto;
-    }
-
-    // Imprimir el informe
-    printf("Informe de Total Operado por Sucursal:\n");
-    for (int i = 0; i < numSucursales; i++) {
-        printf("Sucursal: %s, Total Operado: %.2lf\n", estadisticas[i].nombre, estadisticas[i].total);
-    }
-
-    // Calcular y mostrar el total general
-    double totalGeneral = 0.0;
-    for (int i = 0; i < numSucursales; i++) {
-        totalGeneral += estadisticas[i].total;
-    }
-    printf("Total General Operado en Todas las Sucursales: %.2lf\n", totalGeneral);
-    */
 }
 
 void menuABMCajero()

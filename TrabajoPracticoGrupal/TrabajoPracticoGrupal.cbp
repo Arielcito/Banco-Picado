@@ -82,6 +82,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Cuenta.h" />
+		<Unit filename="InformeOperaciones.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="InformeOperaciones.h" />
 		<Unit filename="Lista.c">
 			<Option compilerVar="CC" />
 		</Unit>

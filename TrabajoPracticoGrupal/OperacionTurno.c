@@ -4,14 +4,13 @@
 #include "Cliente.h"
 int obtenerNumeroCorrelativo();
 // Función para solicitar un nuevo turno
-void solicitarTurno(TurnoPtr colaTurnos, TurnoPtr colaTurnosPrioridad,char tipoOperacion,CuentaPtr cuenta)
+void solicitarTurno(TurnoPtr colaTurnos, TurnoPtr colaTurnosPrioridad,char* tipoOperacion,CuentaPtr cuenta)
 {
     int numeroCorrelativo = obtenerNumeroCorrelativo(); // Debes implementar esta función.
     // Crear un nuevo turno
     TurnoPtr nuevoTurno = crearTurno(tipoOperacion,numeroCorrelativo,cuenta);
 
     int edadCliente = getEdadCliente(getTitular(cuenta));
-    printf("%d",edadCliente);
 
     if (edadCliente >= 70)
     {
@@ -23,9 +22,9 @@ void solicitarTurno(TurnoPtr colaTurnos, TurnoPtr colaTurnosPrioridad,char tipoO
         // Encolar el turno en la cola normal
         encolar(colaTurnos, nuevoTurno);
     }
-
+    char* tipoOp = getTipoOperacion(nuevoTurno);
     // Imprimir mensaje de confirmación
-    printf("Turno %c%d solicitado con éxito.\n", nuevoTurno->tipoOperacion, nuevoTurno->numeroCorrelativo);
+    printf("Turno %s%d solicitado con éxito.\n", tipoOp, getNumeroCorrelativo(nuevoTurno));
 }
 
 // Función para obtener el número correlativo (deberás implementar la lógica específica)

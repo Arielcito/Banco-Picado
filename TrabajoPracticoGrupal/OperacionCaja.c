@@ -1,18 +1,9 @@
 #include <stdio.h>
 #include "Pila.h"
 #include "Cuenta.h"
+#include "InformeOperaciones.h"
 
-typedef struct {
-    int cliente; // Nombre del cliente
-    char cajero[100]; // Nombre del cajero
-    double monto; // Monto de la operación (positivo para depósitos, negativo para retiros)
-} InformeOperacion;
-
-typedef struct {
-    char cajero[100]; // Nombre del cajero
-    double monto; // Monto de la operación (positivo para depósitos, negativo para retiros)
-} Movimiento;
-void ingresarDinero(CuentaPtr cuenta, const char* cajero, PtrPila pilaTransacciones) {
+void ingresarDinero(CuentaPtr cuenta,  CajeroPtr cajero, InformeOperacionPtr pilaTransacciones) {
     // Solicitar al usuario el monto a ingresar
     double monto;
     printf("Ingrese el monto a ingresar: ");
@@ -28,17 +19,15 @@ void ingresarDinero(CuentaPtr cuenta, const char* cajero, PtrPila pilaTransaccio
     cuenta->saldo += monto;
 
     // Registra la operación en la pila de transacciones
-    InformeOperacion informe;
-    informe.cliente = cuenta->numeroCuenta;
-    strcpy(informe.cajero, cajero);
-    informe.monto = monto;
-    apilar(pilaTransacciones, &informe);
+    InformeOperacionPtr informe = crearInformeOperacion(cuenta,cajero,monto);
+
+    apilar(pilaTransacciones, informe);
 
     // Imprimir un mensaje de confirmación
-    printf("Se ingresaron %.2lf pesos a la cuenta de %d. Nuevo saldo: %.2lf\n", monto, cuenta->numeroCuenta, cuenta->saldo);
+    printf("Se ingresaron %.2lf pesos a la cuenta de %d. Nuevo saldo: %.2lf\n", informe->monto, cuenta->numeroCuenta, cuenta->saldo);
 }
 
-void retirarDinero(CuentaPtr cuenta, const char* cajero, PtrPila pilaTransacciones) {
+void retirarDinero(CuentaPtr cuenta, CajeroPtr cajero, InformeOperacionPtr pilaTransacciones) {
     // Solicitar al usuario el monto a ingresar
     double monto;
     printf("Ingrese el monto a ingresar: ");
@@ -59,11 +48,9 @@ void retirarDinero(CuentaPtr cuenta, const char* cajero, PtrPila pilaTransaccion
     cuenta->saldo -= monto;
 
     // Registra la operación en la pila de transacciones
-    InformeOperacion informe;
-    informe.cliente = cuenta->numeroCuenta;
-    strcpy(informe.cajero, cajero);
-    informe.monto = -monto; // Monto negativo para indicar retiro
-    apilar(pilaTransacciones, &informe);
+    InformeOperacionPtr informe = crearInformeOperacion(cuenta,cajero,-monto);
+
+    apilar(pilaTransacciones, informe);
 
     // Imprimir un mensaje de confirmación
     printf("Se retiraron %.2lf pesos de la cuenta de %d. Nuevo saldo: %.2lf\n", monto, cuenta->numeroCuenta, cuenta->saldo);
@@ -76,12 +63,12 @@ void consultarSaldo(CuentaPtr cuenta) {
 
 // Función para consultar los movimientos realizados en una cuenta
 
-void mostrarInformes(PtrPila pila) {
+void mostrarInformes(InformeOperacionPtr pila) {
 
-    printf("Informe de operaciones:\n");
+    printf("Operaciones realizadas:\n");
 
     // Creamos una pila auxiliar para invertir el orden de los informes
-    PtrPila pilaAuxiliar = crearPila();
+    InformeOperacionPtr pilaAuxiliar = crearPila();
 
     // Desapilamos los elementos de la pila original y los apilamos en la auxiliar
     while (!pilaVacia(pila)) {
@@ -93,9 +80,9 @@ void mostrarInformes(PtrPila pila) {
     while (!pilaVacia(pilaAuxiliar)) {
         InformeOperacion* informe = (InformeOperacion*)desapilar(pilaAuxiliar);
         // Suponiendo que InformeOperacion tiene campos nombreCliente, monto, etc.
-        printf("Cliente: %d\n", informe->cliente);
-        printf("Cajero: %s\n", informe->cajero);
-        printf("Monto: %.2f\n", informe->monto);
+        printf("Cliente: %1d\n", getDniCliente(getCliente(informe)));
+        printf("Cajero: %s\n", getNombreCajero(getCajero(informe)));
+        printf("Monto: %.2f\n", getSaldoOperacion(informe));
         // Aquí muestra otros campos del informe según sea necesario
     }
 

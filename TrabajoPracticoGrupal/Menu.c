@@ -79,17 +79,17 @@ void mostrarMenuPrincipal()
 
     solicitarTurno(colaTurnos,colaTurnosPrioridad,"C",cuenta);
     solicitarTurno(colaTurnos,colaTurnosPrioridad,"I",cuenta2);
-    limpiarPantalla();
 
+    limpiarPantalla();
+    SucursalPtr sucursalSeleccionada = NULL;
+    mostrarCuentas(&listaCuentas,numCuentas);
     do
     {
-        SucursalPtr sucursalSeleccionada = NULL;
-        do
-        {
-            sucursalSeleccionada = seleccionarSucursal(listaSucursales);
-        }
-        while(sucursalSeleccionada == NULL);
-
+        sucursalSeleccionada = seleccionarSucursal(listaSucursales);
+    }
+    while(sucursalSeleccionada == NULL);
+    do
+    {
         menuPrincipal(sucursalActual);
 
         printf("Sucursal Actual: %s \n", getDomicilio(sucursalSeleccionada));
@@ -123,16 +123,8 @@ void mostrarMenuPrincipal()
             menuABMCuenta(listaClientes,listaCuentas,numClientes, numCuentas);
             break;
         case 6:
-            // Opción para ABM Cajero
-            menuABMSucursal(listaSucursales);
-            break;
-        case 7:
             // Opción para ABM Turno
             menuABMCajero();
-            break;
-        case 8:
-            // Opción para ABM Cheque
-            menuABMCaja();
             break;
         case 0:
             printf("Saliendo...\n");
@@ -165,9 +157,7 @@ void menuPrincipal()
     printf("3. Operación cliente\n");
     printf("4. Informes\n");
     printf("5. ABM Cuenta\n");
-    printf("6. ABM Sucursal\n");
-    printf("7. ABM Cajero\n");
-    printf("8. ABM Cajas\n");
+    printf("6. ABM Cajero\n");
     printf("0. Salir\n");
 }
 void submenuCajero()
@@ -291,7 +281,8 @@ void menuABMCuenta(ClientePtr* listaClientes, CuentaPtr listaCuentas, int *numCl
                         break; // Salir del bucle una vez que se ha encontrado y eliminado la cuenta
                     }
                 }
-                if(indiceEncontrado == -1){
+                if(indiceEncontrado == -1)
+                {
                     printf("No se encontro el numero.\n");
                 }
             }
@@ -314,7 +305,7 @@ void menuABMCuenta(ClientePtr* listaClientes, CuentaPtr listaCuentas, int *numCl
             break;
         case 5:
             printf("Volviendo al menú principal...\n");
-            limpiarPantalla();
+
             break;
         default:
             printf("Opción no válida. Inténtelo de nuevo.\n");
@@ -451,10 +442,9 @@ SucursalPtr seleccionarSucursal(SucursalPtr listaSucursales)
     }
     SucursalPtr sucursal = getDatoLista(listaSucursales,opcion);
     printf("Ha seleccionado la sucursal %d. %s\n", opcion,getDomicilio(sucursal));
+
     return sucursal;
 }
-
-
 void operatoriaCliente(CuentaPtr listaCuentas,TurnoPtr colaTurnosPriodidad,int numClientes,TurnoPtr colaTurnos)
 {
     int opcion;
@@ -480,7 +470,8 @@ void operatoriaCliente(CuentaPtr listaCuentas,TurnoPtr colaTurnosPriodidad,int n
 
         cuenta = buscarCuentaPorDNI(&listaCuentas,nroDni,numClientes,&encontrado);
 
-        if(encontrado == 1){
+        if(encontrado == 1)
+        {
             break;
         }
     }
@@ -542,7 +533,7 @@ void operatoriaCliente(CuentaPtr listaCuentas,TurnoPtr colaTurnosPriodidad,int n
 CuentaPtr buscarCuentaPorDNI(CuentaPtr* listaCuentas, int *dni, int *numCuentas, int *encontrado)
 {
     CuentaPtr actualClient = NULL;
-
+    printf("%d",numCuentas);
     for (int i = 0; i < numCuentas; i++)
     {
         actualClient = getDatoLista(listaCuentas, i);
@@ -560,15 +551,15 @@ CuentaPtr buscarCuentaPorDNI(CuentaPtr* listaCuentas, int *dni, int *numCuentas,
 
     return actualClient;
 }
-
-
 void menuMovimientosDeCuenta(CuentaPtr cuenta, CajeroPtr cajero, PtrPila pilaTransacciones)
 {
     int opcion;
 
     do
     {
+        printf("-------------------------");
         printf("\n** Movimientos de Cuenta **\n");
+        printf("-------------------------\n\n");
         printf("1. Ingresar dinero\n");
         printf("2. Retirar dinero\n");
         printf("3. Mostrar Saldo\n");
@@ -587,7 +578,6 @@ void menuMovimientosDeCuenta(CuentaPtr cuenta, CajeroPtr cajero, PtrPila pilaTra
             break;
         case 3:
             consultarSaldo(cuenta);
-
             break;
         case 4:
             mostrarInformes(pilaTransacciones);

@@ -12,6 +12,7 @@ void altaCuenta(CuentaPtr* listaCuentas, int *numCuentas, ClientePtr titular)
     {
         // Crear la cuenta y agregarla al arreglo
         (*numCuentas)++;
+        printf("%d",*numCuentas);
         CuentaPtr nuevaCuenta = crearCuenta(titular,*numCuentas);
         agregarDatoLista(listaCuentas,nuevaCuenta);
 
@@ -95,7 +96,7 @@ void mostrarCuenta(CuentaPtr actualClient)
 }
 void mostrarMenuCuentas()
 {
-    printf("-------------------------\n\n");
+    printf("-------------------------\n");
     printf("Menu de Cuenta:\n");
     printf("-------------------------\n\n");
     printf("1. Alta de Cuenta\n");

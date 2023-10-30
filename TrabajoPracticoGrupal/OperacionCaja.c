@@ -19,7 +19,7 @@ void ingresarDinero(CuentaPtr cuenta,  CajeroPtr cajero, InformeOperacionPtr pil
     cuenta->saldo += monto;
 
     // Registra la operación en la pila de transacciones
-    InformeOperacionPtr informe = crearInformeOperacion(cuenta,cajero,monto);
+    InformeOperacionPtr informe = crearInformeOperacion(cuenta,cajero,monto,"Ingreso de dinero");
 
     apilar(pilaTransacciones, informe);
 
@@ -43,7 +43,7 @@ void ingresarCheque(CuentaPtr cuenta,  CajeroPtr cajero, InformeOperacionPtr pil
     cuenta->saldo += monto;
 
     // Registra la operación en la pila de transacciones
-    InformeOperacionPtr informe = crearInformeOperacion(cuenta,cajero,monto);
+    InformeOperacionPtr informe = crearInformeOperacion(cuenta,cajero,monto,"Ingreso de cheque");
 
     apilar(pilaTransacciones, informe);
 
@@ -72,7 +72,7 @@ void retirarDinero(CuentaPtr cuenta, CajeroPtr cajero, InformeOperacionPtr pilaT
     cuenta->saldo -= monto;
 
     // Registra la operación en la pila de transacciones
-    InformeOperacionPtr informe = crearInformeOperacion(cuenta,cajero,-monto);
+    InformeOperacionPtr informe = crearInformeOperacion(cuenta,cajero,-monto,"Egreso de dinero");
 
     apilar(pilaTransacciones, informe);
 
@@ -97,6 +97,7 @@ void mostrarInformes(InformeOperacionPtr pila) {
     // Desapilamos los elementos de la pila original y los apilamos en la auxiliar
     while (!pilaVacia(pila)) {
         InformeOperacion* informe = (InformeOperacion*)desapilar(pila);
+
         apilar(pilaAuxiliar, informe);
     }
 
@@ -107,6 +108,7 @@ void mostrarInformes(InformeOperacionPtr pila) {
         printf("Cliente: %1d\n", getDniCliente(getCliente(informe)));
         printf("Cajero: %s\n", getNombreCajero(getCajero(informe)));
         printf("Monto: %.2f\n", getSaldoOperacion(informe));
+        printf("Tipo de operacion: %s\n", getTipoOperacionInforme(informe));
         // Aquí muestra otros campos del informe según sea necesario
     }
 
@@ -121,7 +123,7 @@ void menuImpuestos(CuentaPtr cuenta,  CajeroPtr cajero, InformeOperacionPtr pila
     printf("1. Si\n");
     printf("2. No\n");
 
-    printf("Desea pagar los impuestos por un valor de %d",montoImpuesto);
+    printf("Desea pagar los impuestos por un valor de %d\n",montoImpuesto);
     scanf("%d",&opcion);
 
     switch(opcion){
@@ -135,9 +137,11 @@ void menuImpuestos(CuentaPtr cuenta,  CajeroPtr cajero, InformeOperacionPtr pila
 }
 
 void crearImpuestos(CuentaPtr cuenta,  CajeroPtr cajero, InformeOperacionPtr pilaTransacciones, int montoImpuesto){
+
+    printf("%.2lf",getSaldo(cuenta));
 // Verificar si el saldo es suficiente para el retiro
-    if (montoImpuesto > cuenta->saldo) {
-        printf("Saldo insuficiente para realizar el retiro.\n");
+    if (montoImpuesto > getSaldo(cuenta)) {
+        printf("Saldo insuficiente para realizar el pago.\n");
         return;
     }
 
@@ -145,10 +149,10 @@ void crearImpuestos(CuentaPtr cuenta,  CajeroPtr cajero, InformeOperacionPtr pil
     cuenta->saldo -= montoImpuesto;
 
     // Registra la operación en la pila de transacciones
-    InformeOperacionPtr informe = crearInformeOperacion(cuenta,cajero,-montoImpuesto);
+    InformeOperacionPtr informe = crearInformeOperacion(cuenta,cajero,-montoImpuesto,"Pago impuestos");
 
     apilar(pilaTransacciones, informe);
 
     // Imprimir un mensaje de confirmación
-    printf("Se retiraron %.2lf pesos de la cuenta de %d. Nuevo saldo: %.2lf\n", montoImpuesto, cuenta->numeroCuenta, cuenta->saldo);
+    printf("Se pagaron %.2lf pesos por impuestos de la cuenta %d. Nuevo saldo: %.2lf\n", montoImpuesto, cuenta->numeroCuenta, cuenta->saldo);
 }

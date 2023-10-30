@@ -457,7 +457,7 @@
 	"Nodo.h"
 	"Util.h"
 
-1698683444 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\operacioncaja.c
+1698691410 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\operacioncaja.c
 	<stdio.h>
 	"Pila.h"
 	"Cuenta.h"
@@ -692,7 +692,7 @@
 
 1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\menu.h
 
-1698686531 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\menu.c
+1698695032 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\menu.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -712,7 +712,7 @@
 	"Pila.h"
 	"Lista.h"
 
-1698685993 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\operacionturno.c
+1698687932 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\operacionturno.c
 	"Turno.h"
 	"Cola.h"
 	"Cuenta.h"
@@ -739,7 +739,7 @@
 	"cliente.h"
 	"lista.h"
 
-1698687058 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmcuentas.c
+1698691677 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmcuentas.c
 	<stdio.h>
 	"cuenta.h"
 	"cliente.h"
@@ -754,7 +754,7 @@
 1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmcajas.h
 	"caja.h"
 
-1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmclientes.h
+1698687428 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmclientes.h
 	"cliente.h"
 
 1698668879 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmcuentas.h
@@ -1450,13 +1450,13 @@
 	"cuenta.h"
 	"cajero.h"
 
-1698639062 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\informeoperaciones.c
+1698691322 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\informeoperaciones.c
 	"InformeOperaciones.h"
 	"Cliente.h"
 	"Cajero.h"
 	"cliente.h"
 
-1698639062 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\informeoperaciones.h
+1698689819 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\informeoperaciones.h
 	"cuenta.h"
 	"cajero.h"
 

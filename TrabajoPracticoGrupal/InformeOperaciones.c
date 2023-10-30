@@ -3,14 +3,14 @@
 #include "Cajero.h"
 #include "cliente.h"
 // Función para crear un nuevo informe de operación
-InformeOperacionPtr crearInformeOperacion(CuentaPtr titular,CajeroPtr cajero,double monto)
+InformeOperacionPtr crearInformeOperacion(CuentaPtr titular,CajeroPtr cajero,double monto,char *tipoOperacion)
 {
     // Asignar los valores a los miembros del informe de operación
     InformeOperacionPtr informeOperacion = malloc(sizeof(InformeOperacion));
     informeOperacion->cliente = titular;
     informeOperacion->cajero = cajero;
     informeOperacion->monto = monto;
-
+    strncpy(informeOperacion->tipoOperacion, tipoOperacion, sizeof(informeOperacion->tipoOperacion));
     // Devolver el informe de operación
     return informeOperacion;
 }
@@ -44,4 +44,8 @@ double getSaldoOperacion(InformeOperacionPtr cuenta)
 {
     // Devolver el saldo del informe de operación
     return cuenta->monto;
+}
+
+char getTipoOperacionInforme(InformeOperacionPtr cuenta){
+    return cuenta->tipoOperacion;
 }

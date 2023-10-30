@@ -22,7 +22,7 @@ void solicitarTurno(TurnoPtr colaTurnos, TurnoPtr colaTurnosPrioridad,char* tipo
         // Encolar el turno en la cola normal
         encolar(colaTurnos, nuevoTurno);
     }
-    char* tipoOp = getTipoOperacion(nuevoTurno);
+
     // Imprimir mensaje de confirmación
     printf("Turno %s%d solicitado con éxito.\n", getTipoOperacion(nuevoTurno), getNumeroCorrelativo(nuevoTurno));
 }
@@ -51,7 +51,8 @@ CuentaPtr llamarProximoTurno(TurnoPtr colaTurnos, TurnoPtr colaTurnosPrioridad)
         TurnoPtr proximoTurno = desencolar(colaTurnosPrioridad);
         int edadCliente = getEdadCliente(getTitular(getCuentaAAtender(proximoTurno)));
         printf("%d",edadCliente);
-        printf("Llamando al turno con prioridad: %c%d.\n", proximoTurno->tipoOperacion, proximoTurno->numeroCorrelativo);
+
+        printf("Llamando al turno con prioridad: %s%d.\n", getTipoOperacion(proximoTurno), proximoTurno->numeroCorrelativo);
 
         return proximoTurno->cuenta;
     }
@@ -59,8 +60,8 @@ CuentaPtr llamarProximoTurno(TurnoPtr colaTurnos, TurnoPtr colaTurnosPrioridad)
     {
         // Desencolar el turno de la cola normal
         TurnoPtr proximoTurno = desencolar(colaTurnos);
-
-        printf("Llamando al turno %c%d.\n", proximoTurno->tipoOperacion, proximoTurno->numeroCorrelativo);
+        char* tipoOp = getTipoOperacion(proximoTurno);
+        printf("Llamando al turno %s%d.\n", getTipoOperacion(proximoTurno), proximoTurno->numeroCorrelativo);
 
         return proximoTurno->cuenta;
     }

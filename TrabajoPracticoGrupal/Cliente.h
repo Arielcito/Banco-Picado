@@ -28,5 +28,6 @@ void setApellidoCliente(ClientePtr cliente,  char *apellido);
 void setNombreCliente(ClientePtr cliente,  char *nombre);
 void setDomicilioCliente(ClientePtr cliente,  char *domicilio);
 void setEdadCliente(ClientePtr cliente, int edad);
+void cargarClientesDesdeArchivo(const char *nombreArchivo, ClientePtr listaClientes);
 
 #endif // CLIENTE_H

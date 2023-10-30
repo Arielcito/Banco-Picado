@@ -1,4 +1,5 @@
 #include "cliente.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -65,4 +66,35 @@ void setDomicilioCliente(ClientePtr cliente, char *domicilio) {
 
 void setEdadCliente(ClientePtr cliente, int edad){
      cliente->edad;
+}
+
+void cargarClientesDesdeArchivo(const char *nombreArchivo, ClientePtr listaClientes)
+{
+    FILE *archivo = fopen(nombreArchivo, "r");
+    if (archivo == NULL)
+    {
+        perror("Error al abrir el archivo");
+        exit(1);
+    }
+
+    char linea[100];
+    Cliente *cliente;
+
+    while (fgets(linea, sizeof(linea), archivo) != NULL)
+    {
+        long dni;
+        char apellido[100];
+        char nombre[100];
+        char domicilio[100];
+        int edad;
+
+        if (sscanf(linea, "%ld %99s %99s %99s %d", &dni, apellido, nombre, domicilio, &edad) == 5)
+        {
+            cliente = crearCliente(dni, apellido, nombre, domicilio, edad);
+            // Agregar el cliente a la lista
+            agregarDatoLista(listaClientes, cliente);
+        }
+    }
+
+    fclose(archivo);
 }

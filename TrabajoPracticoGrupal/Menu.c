@@ -69,12 +69,12 @@ void mostrarMenuPrincipal()
 
     cargarSucursalesDesdeArchivo("sucursales.txt",listaSucursales);
 
-    ClientePtr clienteMock = crearCliente(1, "Serato", "Ariel","jorge miles",22);
-    altaCuenta(&listaCuentas, &numCuentas, clienteMock);
-    ClientePtr clienteMock2 = crearCliente(2, "Serato", "Ariel","jorge miles",70);
-    altaCuenta(&listaCuentas, &numCuentas, clienteMock2);
-    ClientePtr clienteMock3 = crearCliente(3, "Serato", "Ariel","jorge miles",71);
-    altaCuenta(&listaCuentas, &numCuentas, clienteMock3);
+    cargarClientesDesdeArchivo("clientes.txt",listaClientes);
+
+     for (int i = 0; i < longitudLista(listaClientes); i++) {
+        ClientePtr cliente = (ClientePtr)getDatoLista(listaClientes, i);
+        altaCuenta(&listaCuentas, &numCuentas, cliente);
+    }
 
     CuentaPtr cuenta = getCabecera(&listaCuentas);
     CuentaPtr cuenta2 = getDatoLista(&listaCuentas,2);

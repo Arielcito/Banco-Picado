@@ -1,4 +1,5 @@
 #include "cajero.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -57,4 +58,34 @@ void setCuilCajero(CajeroPtr cajero, long cuil) {
 // Setter para el número de legajo del cajero
 void setNumeroLegajoCajero(CajeroPtr cajero, int numeroLegajo) {
     cajero->numeroLegajo = numeroLegajo;
+}
+
+void cargarCajerosDesdeArchivo(const char *nombreArchivo, CajeroPtr listaCajeros)
+{
+    FILE *archivo = fopen(nombreArchivo, "r");
+    if (archivo == NULL)
+    {
+        perror("Error al abrir el archivo");
+        exit(1);
+    }
+
+    char linea[100];
+    Cajero *cajero;
+
+    while (fgets(linea, sizeof(linea), archivo) != NULL)
+    {
+        char apellido[100];
+        char nombre[100];
+        long cuil;
+        int numeroLegajo;
+
+        if (sscanf(linea, "%99s %99s %ld %d", apellido, nombre, &cuil, &numeroLegajo) == 4)
+        {
+            cajero = crearCajero(apellido, nombre, cuil, numeroLegajo);
+            // Agregar el cajero a la lista
+            agregarDatoLista(listaCajeros, cajero);
+        }
+    }
+
+    fclose(archivo);
 }

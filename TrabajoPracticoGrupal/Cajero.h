@@ -25,5 +25,6 @@ void setApellidoCajero(CajeroPtr cajero, const char *apellido);
 void setNombreCajero(CajeroPtr cajero, const char *nombre);
 void setCuilCajero(CajeroPtr cajero, long cuil);
 void setNumeroLegajoCajero(CajeroPtr cajero, int numeroLegajo);
+void cargarCajerosDesdeArchivo(const char *nombreArchivo, CajeroPtr listaCajeros);
 
 #endif // CAJERO_H

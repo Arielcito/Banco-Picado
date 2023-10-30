@@ -61,9 +61,6 @@ void mostrarMenuPrincipal()
     CuentaPtr listaCuentas = crearLista(); // Inicializa la lista de clientes
     int *numCuentas = 0;
 
-    CajeroPtr listaCajeros = crearLista(); // Inicializa la lista de clientes
-    int *numCajeros = 0;
-
     TurnoPtr colaTurnos = crearCola();
     TurnoPtr colaTurnosPrioridad = crearCola();
 
@@ -182,7 +179,14 @@ void submenuCajero()
 void mostrarMenuCajero(int opcion, TurnoPtr colaTurnos,TurnoPtr colaTurnosPrioridad ,OperacionCuentaPtr pilaTransacciones)
 {
     CuentaPtr cuentaActual = NULL;
-    CajeroPtr cajero = crearCajero("serato", "Ariel",  123,  1);
+
+    CajeroPtr listaCajeros = crearLista();
+    int *numCajeros = 0;
+
+    cargarCajerosDesdeArchivo("cajeros.txt",listaCajeros);
+
+    CajeroPtr cajeroImpuestos = (CajeroPtr)getDatoLista(listaCajeros, 0);
+    CajeroPtr cajeroMovimientos = (CajeroPtr)getDatoLista(listaCajeros, 1);
 
     switch(opcion)
     {
@@ -208,7 +212,7 @@ void mostrarMenuCajero(int opcion, TurnoPtr colaTurnos,TurnoPtr colaTurnosPriori
             printf("Primero tiene que llamar un turno\n");
             break;
         }
-        menuMovimientosDeCuenta(&cuentaActual,cajero, pilaTransacciones);
+        menuMovimientosDeCuenta(&cuentaActual,cajeroMovimientos, pilaTransacciones);
         break;
     case 4:
         //Informe del cajero

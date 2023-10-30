@@ -15,7 +15,7 @@ void altaCuenta(CuentaPtr* listaCuentas, int *numCuentas, ClientePtr titular)
         CuentaPtr nuevaCuenta = crearCuenta(titular,*numCuentas);
         agregarDatoLista(listaCuentas,nuevaCuenta);
 
-        printf("Cuenta agregada con éxito.\n");
+        printf("\nCuenta agregada con exito.\n");
     }
     else
     {
@@ -38,6 +38,7 @@ void bajaCuenta(CuentaPtr* listaCuentas, int *numCuentas, int numeroCuenta)
 
             (*numCuentas)--;
             printf("Cuenta eliminada con éxito.\n");
+            indiceEncontrado = i;
             break; // Salir del bucle una vez que se ha encontrado y eliminado la cuenta
         }
     }
@@ -54,7 +55,6 @@ void modificarCuenta(CuentaPtr* listaCuentas, int *numCuentas, int numeroCuenta,
 
     for (int i = 0; i < numCuentas; i++)
     {
-
         CuentaPtr cuentaActual = getDatoLista(listaCuentas,i);
         if (getNumeroCuenta(cuentaActual) == numeroCuenta)
         {
@@ -74,29 +74,19 @@ void modificarCuenta(CuentaPtr* listaCuentas, int *numCuentas, int numeroCuenta,
     }
 }
 
-void mostrarCuentas(CuentaPtr** listaCuentas, int *numCuentas)
+void mostrarCuentas(CuentaPtr* listaCuentas, int numCuentas)
 {
-    CuentaPtr listaAux=crearLista();
-    agregarLista(listaAux,listaCuentas);
+    CuentaPtr actualClient;
 
-    printf("Lista de Cuentas:\n");
-    while(!listaVacia(listaAux))
-    {
-        CuentaPtr actualClient = getCabecera(listaAux);
+    for (int i = 0; i < numCuentas; i++) {
+        actualClient = getDatoLista(listaCuentas,i);
         mostrarCuenta(actualClient);
-
-        CuentaPtr listaADestruir=listaAux;
-        listaAux=getResto(listaAux);
-        destruirLista(listaADestruir,false);
     }
-    destruirLista(listaAux,false);
-    printf("\n");
-
 }
 
 void mostrarCuenta(CuentaPtr actualClient)
 {
-    printf("Número de cuenta: %d, Titular: %s %s, DNI: %d , Saldo: %.2f\n",
+    printf("Numero de cuenta: %d, Titular: %s %s, DNI: %d , Saldo: %.2f\n",
            getNumeroCuenta(actualClient),
            getNombreCliente(getTitular(actualClient)),
            getApellidoCliente(getTitular(actualClient)),
@@ -105,11 +95,12 @@ void mostrarCuenta(CuentaPtr actualClient)
 }
 void mostrarMenuCuentas()
 {
+    printf("-------------------------\n\n");
     printf("Menu de Cuenta:\n");
     printf("-------------------------\n\n");
     printf("1. Alta de Cuenta\n");
     printf("2. Baja de Cuenta\n");
-    printf("3. Modificaci�n de Cuenta\n");
+    printf("3. Modificacion de Cuenta\n");
     printf("4. Mostrar Cuenta\n");
     printf("5. Salir\n");
 }

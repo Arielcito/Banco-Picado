@@ -372,138 +372,141 @@
 	"Pila.h"
 	"Cuenta.h"
 
-1697751498 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\banco.c
+1698622893 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\banco.c
 	"banco.h"
 	<stdlib.h>
 
-1697751494 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\banco.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\banco.h
 	"sucursal.h"
 
-1697734642 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\sucursal.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\sucursal.h
 	"caja.h"
 
-1697734635 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\caja.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\caja.h
 	"turno.h"
 	"cajero.h"
 
-1697734635 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\turno.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\turno.h
 	"Cuenta.h"
 
-1697734635 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\caja.c
+1698639062 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\caja.c
 	"caja.h"
 	<stdlib.h>
 
-1696892126 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cajero.c
+1698639062 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cajero.c
 	"cajero.h"
+	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1696892126 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cajero.h
+1698639062 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cajero.h
 
-1697734635 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cheque.c
+1698622893 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cheque.c
 	"cheque.h"
 	<stdlib.h>
 	<string.h>
 
-1697734635 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cheque.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cheque.h
 
-1697736400 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cliente.c
+1698639062 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cliente.c
 	"cliente.h"
+	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1697736400 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cliente.h
+1698639062 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cliente.h
 
-1696892126 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cola.c
+1698622893 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cola.c
 	<stdbool.h>
 	"Cola.h"
 	"Util.h"
 
-1696892126 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cola.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cola.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"Nodo.h"
 
-1696892126 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\nodo.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\nodo.h
 	<stdio.h>
 	<stdlib.h>
 
-1696892126 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\util.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\util.h
 
-1696892126 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cuenta.c
+1698622893 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cuenta.c
 	"cuenta.h"
 	<stdlib.h>
 
-1696892126 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cuenta.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\cuenta.h
 	"cliente.h"
 
-1696892126 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\lista.c
+1698622893 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\lista.c
 	<stdbool.h>
 	"Lista.h"
 	"Util.h"
 	"Nodo.h"
 
-1696892126 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\lista.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\lista.h
 	<stdbool.h>
 	"Nodo.h"
 	"Util.h"
 
-1696892126 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\nodo.c
+1698622893 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\nodo.c
 	<stdio.h>
 	<stdlib.h>
 	"Nodo.h"
 	"Util.h"
 
-1697734635 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\operacioncaja.c
+1698683444 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\operacioncaja.c
 	<stdio.h>
 	"Pila.h"
 	"Cuenta.h"
+	"InformeOperaciones.h"
 
-1696892126 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\pila.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\pila.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	"Nodo.h"
 
-1696892126 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\operacioncuenta.c
+1698622893 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\operacioncuenta.c
 	"OperacionCuenta.h"
 	<stdlib.h>
 
-1696892126 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\operacioncuenta.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\operacioncuenta.h
 	"cuenta.h"
 	<time.h>
 
-1696892126 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\operacionimpuestos.c
+1698622893 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\operacionimpuestos.c
 	"OperacionImpuestos.h"
 	<stdlib.h>
 	<string.h>
 
-1696892126 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\operacionimpuestos.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\operacionimpuestos.h
 	<time.h>
 
-1696892126 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\pila.c
+1698622893 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\pila.c
 	<stdio.h>
 	<stdlib.h>
 	"Pila.h"
 	"Util.h"
 
-1697734642 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\sucursal.c
+1698639062 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\sucursal.c
 	"sucursal.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1697734635 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\turno.c
+1698622893 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\turno.c
 	"turno.h"
 	<stdlib.h>
 
-1696892126 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\util.c
+1698622893 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\util.c
 	<stdio.h>
 	<stdlib.h>
 	"util.h"
 
-1696892126 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\main.c
+1698622893 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -685,11 +688,11 @@
 
 1695685329 c:\users\dante\desktop\banco-picado\menu.h
 
-1696892126 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\client.c
+1698622893 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\client.c
 
-1697734635 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\menu.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\menu.h
 
-1697750920 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\menu.c
+1698686531 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\menu.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -709,55 +712,55 @@
 	"Pila.h"
 	"Lista.h"
 
-1697750640 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\operacionturno.c
+1698685993 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\operacionturno.c
 	"Turno.h"
 	"Cola.h"
 	"Cuenta.h"
 	"Cliente.h"
 
-1697735976 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmcajas.c
+1698639049 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmcajas.c
 	<stdio.h>
 	"Caja.h"
 	"lista.h"
 	"Cajero.h"
 
-1697735646 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmcajeros.c
+1698622893 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmcajeros.c
 	<stdio.h>
 	<stdlib.h>
 	"ABMCajeros.h"
 	"lista.h"
 
-1697735291 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmcajeros.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmcajeros.h
 	"cajero.h"
 
-1697736496 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmclientes.c
+1698687404 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmclientes.c
 	<stdio.h>
 	<stdlib.h>
 	"cliente.h"
 	"lista.h"
 
-1697734635 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmcuentas.c
+1698687058 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmcuentas.c
 	<stdio.h>
 	"cuenta.h"
 	"cliente.h"
 	"lista.h"
 
-1696892126 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmsucursales.c
+1698622893 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmsucursales.c
 	<stdio.h>
 	<stdlib.h>
 	"sucursal.h"
 	"lista.h"
 
-1697735086 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmcajas.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmcajas.h
 	"caja.h"
 
-1697735291 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmclientes.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmclientes.h
 	"cliente.h"
 
-1697735291 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmcuentas.h
+1698668879 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmcuentas.h
 	"cuenta.h"
 
-1696892126 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmsucursales.h
+1698622893 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\abmsucursales.h
 	"sucursal.h"
 
 1696460883 source:c:\users\melii\onedrive\escritorio\ari\banco-picado\trabajopracticogrupal\banco.c
@@ -1444,6 +1447,16 @@
 	"cliente.h"
 
 1698637839 c:\users\dante zulli\desktop\banco-picado\trabajopracticogrupal\informeoperaciones.h
+	"cuenta.h"
+	"cajero.h"
+
+1698639062 source:c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\informeoperaciones.c
+	"InformeOperaciones.h"
+	"Cliente.h"
+	"Cajero.h"
+	"cliente.h"
+
+1698639062 c:\users\ariel.serato\desktop\programacion\proyectos\banco-picado\trabajopracticogrupal\informeoperaciones.h
 	"cuenta.h"
 	"cajero.h"
 

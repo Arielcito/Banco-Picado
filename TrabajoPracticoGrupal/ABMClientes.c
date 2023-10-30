@@ -38,8 +38,6 @@ void altaCliente(Cliente** listaClientes, int* numClientes)
         agregarDatoLista(listaClientes,nuevoCliente);
         (*numClientes)++;
 
-        printf("Cliente agregado con éxito.\n");
-
     }
     else
     {
@@ -64,8 +62,7 @@ void bajaCliente(Cliente** listaClientes, int *numClientes, long dni)
 
             indiceEncontrado = i;
             (*numClientes)--;
-            printf("Cliente eliminado con éxito.\n");
-            break; // Salir del bucle una vez que se ha encontrado y eliminado el cliente
+          break; // Salir del bucle una vez que se ha encontrado y eliminado el cliente
         }
     }
 
@@ -75,7 +72,7 @@ void bajaCliente(Cliente** listaClientes, int *numClientes, long dni)
     }
 }
 
-void modificarCliente(Cliente** listaClientes, int *numClientes, ClientePtr titular)
+int modificarCliente(Cliente** listaClientes, int *numClientes, ClientePtr titular)
 {
     int indiceEncontrado = -1;
     ClientePtr actualClient = titular;
@@ -97,8 +94,10 @@ void modificarCliente(Cliente** listaClientes, int *numClientes, ClientePtr titu
     setApellidoCliente(actualClient, nuevoApellido);
     setNombreCliente(actualClient, nuevoNombre);
     setDomicilioCliente(actualClient, nuevoDomicilio);
-    printf("Cliente modificado con éxito.\n");
 
+    printf("Cuenta modificada con éxito.\n");
+
+    return indiceEncontrado = 1;
 }
 
 

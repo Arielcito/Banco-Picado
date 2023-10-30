@@ -27,6 +27,30 @@ void ingresarDinero(CuentaPtr cuenta,  CajeroPtr cajero, InformeOperacionPtr pil
     printf("Se ingresaron %.2lf pesos a la cuenta de %d. Nuevo saldo: %.2lf\n", informe->monto, cuenta->numeroCuenta, cuenta->saldo);
 }
 
+void ingresarCheque(CuentaPtr cuenta,  CajeroPtr cajero, InformeOperacionPtr pilaTransacciones) {
+    // Solicitar al usuario el monto a ingresar
+    double monto;
+    printf("Ingrese el monto del cheque: ");
+    scanf("%lf", &monto);
+
+    // Verificar que el monto a ingresar sea positivo
+    if (monto <= 0) {
+        printf("El monto a ingresar debe ser mayor que cero.\n");
+        return;
+    }
+
+    // Actualizar el saldo disponible en la cuenta
+    cuenta->saldo += monto;
+
+    // Registra la operación en la pila de transacciones
+    InformeOperacionPtr informe = crearInformeOperacion(cuenta,cajero,monto);
+
+    apilar(pilaTransacciones, informe);
+
+    // Imprimir un mensaje de confirmación
+    printf("Se ingresaron %.2lf pesos a la cuenta de %d. Nuevo saldo: %.2lf\n", informe->monto, cuenta->numeroCuenta, cuenta->saldo);
+}
+
 void retirarDinero(CuentaPtr cuenta, CajeroPtr cajero, InformeOperacionPtr pilaTransacciones) {
     // Solicitar al usuario el monto a ingresar
     double monto;
@@ -88,4 +112,43 @@ void mostrarInformes(InformeOperacionPtr pila) {
 
     // Destruimos la pila auxiliar
     destruirPila(pilaAuxiliar);
+}
+
+void menuImpuestos(CuentaPtr cuenta,  CajeroPtr cajero, InformeOperacionPtr pilaTransacciones){
+    int montoImpuesto=1000;
+    int opcion;
+
+    printf("1. Si\n");
+    printf("2. No\n");
+
+    printf("Desea pagar los impuestos por un valor de %d",montoImpuesto);
+    scanf("%d",&opcion);
+
+    switch(opcion){
+    case 1:
+        //Informe del cajero
+        crearImpuestos(cuenta,cajero,pilaTransacciones,montoImpuesto);
+        break;
+    case 2:
+        break;
+    }
+}
+
+void crearImpuestos(CuentaPtr cuenta,  CajeroPtr cajero, InformeOperacionPtr pilaTransacciones, int montoImpuesto){
+// Verificar si el saldo es suficiente para el retiro
+    if (montoImpuesto > cuenta->saldo) {
+        printf("Saldo insuficiente para realizar el retiro.\n");
+        return;
+    }
+
+    // Realizar el retiro y actualizar el saldo disponible
+    cuenta->saldo -= montoImpuesto;
+
+    // Registra la operación en la pila de transacciones
+    InformeOperacionPtr informe = crearInformeOperacion(cuenta,cajero,-montoImpuesto);
+
+    apilar(pilaTransacciones, informe);
+
+    // Imprimir un mensaje de confirmación
+    printf("Se retiraron %.2lf pesos de la cuenta de %d. Nuevo saldo: %.2lf\n", montoImpuesto, cuenta->numeroCuenta, cuenta->saldo);
 }

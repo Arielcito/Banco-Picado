@@ -24,7 +24,7 @@ void solicitarTurno(TurnoPtr colaTurnos, TurnoPtr colaTurnosPrioridad,char* tipo
     }
     char* tipoOp = getTipoOperacion(nuevoTurno);
     // Imprimir mensaje de confirmación
-    printf("Turno %s%d solicitado con éxito.\n", tipoOp, getNumeroCorrelativo(nuevoTurno));
+    printf("Turno %s%d solicitado con éxito.\n", getTipoOperacion(nuevoTurno), getNumeroCorrelativo(nuevoTurno));
 }
 
 // Función para obtener el número correlativo (deberás implementar la lógica específica)

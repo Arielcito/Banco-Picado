@@ -15,7 +15,7 @@ InformeOperacionPtr destruirInformeOperacion(InformeOperacionPtr cuenta);
 InformeOperacionPtr crearInformeOperacion(CuentaPtr titular,CajeroPtr cajero,double monto);
 // Getters & Setters
 CuentaPtr getCliente(InformeOperacionPtr cuenta);
-CajeroPtr getCajero(InformeOperacionPtr cuenta);
+CajeroPtr getCajeroInforme(InformeOperacionPtr cuenta);
 double getSaldoOperacion(InformeOperacionPtr cuenta);
 
 #endif // INFORMEOPERACIONES_H

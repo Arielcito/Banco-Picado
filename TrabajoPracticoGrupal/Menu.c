@@ -185,8 +185,8 @@ void mostrarMenuCajero(int opcion, TurnoPtr colaTurnos,TurnoPtr colaTurnosPriori
 
     cargarCajerosDesdeArchivo("cajeros.txt",listaCajeros);
 
-    CajeroPtr cajeroImpuestos = (CajeroPtr)getDatoLista(listaCajeros, 0);
-    CajeroPtr cajeroMovimientos = (CajeroPtr)getDatoLista(listaCajeros, 1);
+    CajeroPtr cajeroMovimientos = (CajeroPtr)getDatoLista(listaCajeros, 0);
+    CajeroPtr cajeroImpuestos = (CajeroPtr)getDatoLista(listaCajeros, 1);
 
     switch(opcion)
     {
@@ -361,7 +361,7 @@ void menuABMSucursal(SucursalPtr listaSucursales, int *numSucursales)
 void menuABMCaja()
 {
     int opcion;
-    CajaPtr listaCajas = NULL; // Inicializa la lista de clientes
+    CajaPtr listaCajas = NULL;
     int numCajas = 0;
     do
     {

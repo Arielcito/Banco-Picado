@@ -1045,7 +1045,7 @@
 1698632602 c:\users\dante zulli\desktop\banco-picado\trabajopracticogrupal\banco.h
 	"sucursal.h"
 
-1698632602 source:c:\users\dante zulli\desktop\banco-picado\trabajopracticogrupal\caja.c
+1698637801 source:c:\users\dante zulli\desktop\banco-picado\trabajopracticogrupal\caja.c
 	"caja.h"
 	<stdlib.h>
 
@@ -1156,7 +1156,7 @@
 	"Pila.h"
 	"Util.h"
 
-1698632602 source:c:\users\dante zulli\desktop\banco-picado\trabajopracticogrupal\sucursal.c
+1698637537 source:c:\users\dante zulli\desktop\banco-picado\trabajopracticogrupal\sucursal.c
 	"sucursal.h"
 	<stdio.h>
 	<stdlib.h>
@@ -1171,7 +1171,7 @@
 	<stdlib.h>
 	"util.h"
 
-1698636525 source:c:\users\dante zulli\desktop\banco-picado\trabajopracticogrupal\menu.c
+1698637132 source:c:\users\dante zulli\desktop\banco-picado\trabajopracticogrupal\menu.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -1437,13 +1437,13 @@
 	"cuenta.h"
 	"cajero.h"
 
-1698632602 source:c:\users\dante zulli\desktop\banco-picado\trabajopracticogrupal\informeoperaciones.c
+1698637840 source:c:\users\dante zulli\desktop\banco-picado\trabajopracticogrupal\informeoperaciones.c
 	"InformeOperaciones.h"
 	"Cliente.h"
 	"Cajero.h"
 	"cliente.h"
 
-1698632602 c:\users\dante zulli\desktop\banco-picado\trabajopracticogrupal\informeoperaciones.h
+1698637839 c:\users\dante zulli\desktop\banco-picado\trabajopracticogrupal\informeoperaciones.h
 	"cuenta.h"
 	"cajero.h"
 

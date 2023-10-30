@@ -32,7 +32,7 @@ const char* getDomicilio(SucursalPtr sucursal)
 // Getter para una caja en la sucursal (asumiendo que existe el TDA Caja)
 Caja getCaja(SucursalPtr sucursal, int numeroCaja)
 {
-    // Implementa la lógica para obtener la caja específica aquí
+    return sucursal->cajas[numeroCaja];
 }
 
 // Setter para el número de sucursal

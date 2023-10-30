@@ -33,7 +33,7 @@ CuentaPtr getCliente(InformeOperacionPtr cuenta)
 }
 
 // Función para obtener el cajero del informe de operación
-CajeroPtr getCajero(InformeOperacionPtr cuenta)
+CajeroPtr getCajeroInforme(InformeOperacionPtr cuenta)
 {
     // Devolver el cajero del informe de operación
     return cuenta->cajero;

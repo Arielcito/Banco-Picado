@@ -22,6 +22,9 @@ double getMontoInicial(CajaPtr caja) {
     return caja->montoInicial;
 }
 
+CajeroPtr getCajero(CajaPtr caja) {
+    return caja->cajero;
+}
 // Setter para el número de caja
 void setNumeroCaja(CajaPtr caja, int numeroCaja) {
     caja->numeroCaja = numeroCaja;
@@ -30,4 +33,8 @@ void setNumeroCaja(CajaPtr caja, int numeroCaja) {
 // Setter para el monto inicial
 void setMontoInicial(CajaPtr caja, double montoInicial) {
     caja->montoInicial = montoInicial;
+}
+
+void setCajero(CajaPtr caja, CajeroPtr cajero){
+    caja->cajero = cajero;
 }
